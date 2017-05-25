@@ -1,0 +1,78 @@
+/url/cache
+/.emacs.desktop
+/auto-save-list
+/network-security.data
+/.session
+/session.*
+/custom.el
+*.elc
+CVS
+.svn
+*~
+.cvsignore
+.*.lock
+/tramp
+/TODO
+/anything-c-adaptive-history
+/.org-id-locations
+cookies
+/newsticker
+/ac-comphist.dat
+\#*
+/elpa
+/elpa-*
+site-lisp/package/
+/swank
+/.mc-lists.el
+/var
+/.sqli_history
+/frame-restore-parameters
+/.achievements
+/.bookmarks.el
+/.lastWindowsSize
+/history
+/helm-adaptive-history
+/thumbs/
+/emms/
+/.smex-items
+/image-dired/
+/eshell
+/.cask/
+/.sx/
+/org-clock-save.el
+/ditaa*.jar
+/ido.last
+/recentf
+/viper
+xkcd/
+gnus/
+/projectile-bookmarks.eld
+/anaconda-mode/
+/.historian
+/.uptimes.el
+/rake.cache
+/lisp/init*-local.el
+
+### OSX ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+# Thumbnails
+._*
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
