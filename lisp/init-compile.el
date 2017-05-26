@@ -1,8 +1,9 @@
 (use-package alert)
 (use-package compile
+  :bind (([f6] . recompile))
   :init
   (setq-default compilation-scroll-output t)
-  :ensure alert
+  :after (alert ansi-color)
   :preface
   (defun sanityinc/alert-after-compilation-finish (buf result)
     "Use `alert' to report compilation RESULT if BUF is hidden."
@@ -15,16 +16,14 @@
         (alert (concat "Compilation " result)
                :buffer buf
                :category 'compilation))))
+  (defvar sanityinc/last-compilation-buffer nil
+    "The last buffer in which compilation took place.")
+  (defun sanityinc/colourise-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (ansi-color-apply-on-region compilation-filter-start (point-max))))
   :config
   ;; Customize `alert-default-style' to get messages after compilation
-  (add-hook 'compilation-finish-functions
-            'sanityinc/alert-after-compilation-finish))
-
-(use-package compile
-  :bind (([f6] . recompile))
-  :preface (defvar sanityinc/last-compilation-buffer nil
-             "The last buffer in which compilation took place.")
-  :config
+  (add-hook 'compilation-finish-functions 'sanityinc/alert-after-compilation-finish)
   (defadvice compilation-start (after sanityinc/save-compilation-buffer activate)
     "Save the compilation buffer to find it later."
     (setq sanityinc/last-compilation-buffer next-error-last-buffer))
@@ -46,18 +45,10 @@
     "Put \"*Shell Command Output*\" buffers into view-mode."
     (unless output-buffer
       (with-current-buffer "*Shell Command Output*"
-        (view-mode 1)))))
-
-(use-package compile
-  :ensure ansi-color
-  :preface
-  (defun sanityinc/colourise-compilation-buffer ()
-    (when (eq major-mode 'compilation-mode)
-      (ansi-color-apply-on-region compilation-filter-start (point-max))))
-  :config
+        (view-mode 1))))
   (add-hook 'compilation-filter-hook 'sanityinc/colourise-compilation-buffer))
 
-(use-package cmd-to-echo)
+(use-package cmd-to-echo :ensure t)
 
 
 (provide 'init-compile)
