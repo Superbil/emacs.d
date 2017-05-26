@@ -24,8 +24,10 @@
 
   (after-load 'magit
     (add-hook 'magit-status-mode-hook 'projectile-mode))
+
   (after-load 'guide-key
-    (add-to-list 'guide-key/guide-key-sequence "C-c p")))
+    (dolist (keys `("C-c p" "C-c p 4" "C-c p s" "C-c p x"))
+      (add-to-list 'guide-key/guide-key-sequence keys))))
 
 
 (provide 'init-projectile)
