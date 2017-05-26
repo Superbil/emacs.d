@@ -73,7 +73,7 @@ Call a second time to restore the original window configuration."
     (window-configuration-to-register :sanityinc/split-window)
     (switch-to-buffer-other-window nil)))
 
-(global-set-key (kbd "<f7>") 'sanityinc/split-window)
+(bind-key "<f7>" 'sanityinc/split-window)
 
 
 
@@ -87,7 +87,7 @@ Call a second time to restore the original window configuration."
              (if was-dedicated "no longer " "")
              (buffer-name))))
 
-(global-set-key (kbd "C-c <down>") 'sanityinc/toggle-current-window-dedication)
+(bind-key "C-c <down>" 'sanityinc/toggle-current-window-dedication)
 
 
 
