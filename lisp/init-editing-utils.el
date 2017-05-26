@@ -136,16 +136,13 @@
 
 
 (use-package browse-kill-ring
-  :bind
-  (("M-Y" . browse-kill-ring)
-   :map browse-kill-ring-mode-map
-   ("C-g" . browse-kill-ring-quit)
-   ("M-n" . browse-kill-ring-forward)
-   ("M-p" . browse-kill-ring-previous) )
+  :bind (("M-Y" . browse-kill-ring)
+         :map browse-kill-ring-mode-map
+         ("C-g" . browse-kill-ring-quit)
+         ("M-n" . browse-kill-ring-forward)
+         ("M-p" . browse-kill-ring-previous))
   :init
-  (setq browse-kill-ring-separator "\f"))
-
-(use-package browse-kill-ring
+  (setq browse-kill-ring-separator "\f")
   :after page-break-lines
   :config
   (push 'browse-kill-ring-mode page-break-lines-modes))
