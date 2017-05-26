@@ -1,9 +1,7 @@
 ;;; start edit-server
 (use-package edit-server
-  :disabled t
+  :commands edit-server-start
   :config
-  (edit-server-start)
-
   ;; kill this buffer, also can kill client
   (add-hook 'server-switch-hook
             (lambda ()
