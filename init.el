@@ -13,7 +13,7 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 ;;----------------------------------------------------------------------------
-;; Temporarily reduce garbage collection during startup
+;; More memory on garbage collection
 ;;----------------------------------------------------------------------------
 (setq gc-cons-threshold (* 128 1024 1024))
 (setq message-log-max 16384)
