@@ -12,6 +12,7 @@
   ;; quickly open magit on any one of your projects.
   (("C-x g" . magit-status)
    ("C-x M-g" . magit-dispatch-popup))
+  :after fullframe
   :init
   (setq-default magit-diff-refine-hunk t
                 magit-log-arguments `("-n256" "--graph" "--decorate" "--show-signature"))
@@ -28,11 +29,9 @@
                 ("C-M-<up>" . magit-section-up)
                 ))
 
-  (use-package fullframe
-    :bind (:map magit-mode-map
-                ("M-w" . whole-line-or-region-kill-ring-save))
-    :config
-    (fullframe magit-status magit-mode-quit-window)))
+  (bind-key "M-w" 'whole-line-or-region-kill-ring-save magit-mode-map)
+
+  (fullframe magit-status magit-mode-quit-window))
 
 (use-package git-commit
   :config

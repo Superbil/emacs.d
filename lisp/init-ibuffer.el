@@ -2,11 +2,6 @@
 ;;   See http://www.reddit.com/r/emacs/comments/21fjpn/fontifying_buffer_list_for_emacs_243/
 
 
-(use-package fullframe
-  :after ibuffer
-  :config
-  (fullframe ibuffer ibuffer-quit))
-
 (use-package ibuffer-vc
   :after ibuffer
   :config
@@ -21,6 +16,7 @@
 
 (use-package ibuffer
   :bind (("C-x C-b" . ibuffer))
+  :after fullframe
   :init
   (setq ibuffer-filter-group-name-face 'font-lock-doc-face)
   ;; Modify the default ibuffer-formats (toggle with `)
@@ -50,7 +46,9 @@
     (cond
      ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
      ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
-     (t (format "%8d" (buffer-size))))))
+     (t (format "%8d" (buffer-size)))))
+
+  (fullframe ibuffer ibuffer-quit))
 
 
 (provide 'init-ibuffer)

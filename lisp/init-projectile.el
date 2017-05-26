@@ -18,7 +18,9 @@
     "Open workspace with Xcode at the root of the project."
     (interactive)
     (projectile-with-default-dir (projectile-project-root)
-      (open-xcode-workspace (projectile-project-root)))))
+      (open-xcode-workspace (projectile-project-root))))
+  :config
+  (fullframe projectile-switch-open-vc magit-mode-quit-window))
 
 (use-package magit
   :after projectile-mode
@@ -29,12 +31,6 @@
   :after projectile
   :config
   (add-to-list 'guide-key/guide-key-sequence "C-c p"))
-
-
-(use-package fullframe
-  :after projectile
-  :config
-  (fullframe projectile-switch-open-vc magit-mode-quit-window))
 
 
 (provide 'init-projectile)
