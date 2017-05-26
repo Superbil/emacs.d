@@ -3,7 +3,7 @@
   ;; save a list of open files in ~/.emacs.d/.emacs.desktop
   (setq desktop-path (list user-emacs-directory)
         desktop-auto-save-timeout 600)
-
+  :config
   (defadvice desktop-read (around time-restore activate)
     (let ((start-time (current-time)))
       (prog1
@@ -22,7 +22,7 @@
                                                  start-time)
                  (when filename
                    (abbreviate-file-name filename))))))
-  :config
+
   (desktop-save-mode 1))
 
 ;;----------------------------------------------------------------------------
