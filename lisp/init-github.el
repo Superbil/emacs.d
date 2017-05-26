@@ -8,7 +8,6 @@
   :config
   (add-hook 'prog-mode-hook 'bug-reference-prog-mode))
 
-(use-package github-clone)
 (use-package github-issues)
 (use-package magit-gh-pulls
   :commands magit-status)
