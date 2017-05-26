@@ -12,8 +12,7 @@
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on)
 
-  (use-package guide-key
-    :config
+  (after-load 'guide-key
     (add-to-list 'guide-key/guide-key-sequence "C-c r")))
 
 

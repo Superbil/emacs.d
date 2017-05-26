@@ -20,17 +20,12 @@
     (projectile-with-default-dir (projectile-project-root)
       (open-xcode-workspace (projectile-project-root))))
   :config
-  (fullframe projectile-switch-open-vc magit-mode-quit-window))
+  (fullframe projectile-switch-open-vc magit-mode-quit-window)
 
-(use-package magit
-  :after projectile-mode
-  :config
-  (add-hook 'magit-status-mode-hook 'projectile-mode))
-
-(use-package guide-key
-  :after projectile
-  :config
-  (add-to-list 'guide-key/guide-key-sequence "C-c p"))
+  (after-load 'magit
+    (add-hook 'magit-status-mode-hook 'projectile-mode))
+  (after-load 'guide-key
+    (add-to-list 'guide-key/guide-key-sequence "C-c p")))
 
 
 (provide 'init-projectile)
