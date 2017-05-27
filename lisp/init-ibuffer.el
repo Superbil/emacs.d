@@ -16,7 +16,6 @@
 
 (use-package ibuffer
   :bind (("C-x C-b" . ibuffer))
-  :after fullframe
   :init
   (setq ibuffer-filter-group-name-face 'font-lock-doc-face)
   ;; Modify the default ibuffer-formats (toggle with `)

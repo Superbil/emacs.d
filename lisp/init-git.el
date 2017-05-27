@@ -12,7 +12,6 @@
   ;; quickly open magit on any one of your projects.
   (("C-x g" . magit-status)
    ("C-x M-g" . magit-dispatch-popup))
-  :after fullframe
   :init
   (setq-default magit-diff-refine-hunk t
                 magit-log-arguments `("-n256" "--graph" "--decorate" "--show-signature"))
