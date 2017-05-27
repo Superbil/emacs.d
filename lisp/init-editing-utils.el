@@ -198,13 +198,14 @@
 (use-package multiple-cursors
   :bind (("C-<" . mc/mark-previous-like-this)
          ("C->" . mc/mark-next-like-this)
-         ("C-+" . mc/mark-next-like-this)
          ("C-c C-<" . mc/mark-all-like-this)
-         ;; From active region to multiple cursors:
-         ("C-c m r" . set-rectangular-region-anchor)
-         ("C-c m c" . mc/edit-lines)
+         ("C-c m a" . mc/edit-beginnings-of-lines)
          ("C-c m e" . mc/edit-ends-of-lines)
-         ("C-c m a" . mc/edit-beginnings-of-lines)))
+         ("C-c m c" . mc/edit-lines)
+         ("C-c m m" . mc/mark-all-like-this-dwim)
+         ("C-c m s" . mc/mark-sgml-tag-pair)
+         ("C-c m d" . mc/mark-all-like-this-in-defun)
+         ("C-c m r" . set-rectangular-region-anchor)))
 
 
 ;; Train myself to use M-f and M-b instead
