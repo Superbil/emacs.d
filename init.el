@@ -43,7 +43,6 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
-(use-package project-local-variables)
 (use-package command-log-mode)
 
 (require 'init-frame-hooks)
