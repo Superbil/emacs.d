@@ -9,6 +9,7 @@
 
 (use-package dired
   :commands (dired find-name-dired find-dired)
+  :ensure nil
   :preface
   (setq-default diredp-hide-details-initially-flag nil
                 dired-dwim-target t)
@@ -67,6 +68,7 @@
 (use-package dired-x
   :if *is-a-mac*
   :after dired
+  :ensure nil
   :config
   (setq dired-guess-shell-alist-user
         '(("\\.xcodeproj$" "open"))))

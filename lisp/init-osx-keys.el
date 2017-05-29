@@ -13,10 +13,11 @@
   (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
   (global-set-key (kbd "M-˙") 'ns-do-hide-others)
   (global-set-key (kbd "M-ˍ") 'ns-do-hide-others) ;; what describe-key reports for cmd-option-h
+
   (use-package nxml-mode
+    :ensure nil
     :bind (:map nxml-mode-map
-                ("M-h" . nil)))
-  )
+                ("M-h" . nil))))
 
 
 (provide 'init-osx-keys)

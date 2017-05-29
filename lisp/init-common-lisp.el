@@ -3,6 +3,7 @@
 (use-package lisp-mode
   :bind (:map lisp-mode-map
               ("C-c l" . lispdoc))
+  :ensure nil
   :mode "\\.cl\\'"
   :preface
   ;; From http://bc.tech.coop/blog/070515.html

@@ -54,8 +54,9 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package benchmark-init
-  :ensure t)
+(setq use-package-always-ensure t)
+
+(use-package benchmark-init)
 
 (require 'diminish)
 (require 'bind-key)

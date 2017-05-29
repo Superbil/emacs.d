@@ -30,6 +30,7 @@
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
 (use-package ob-ditaa
+  :ensure nil
   :preface
   (defun sanityinc/grab-ditaa (url jar-name)
     "Download URL and extract JAR-NAME as `org-ditaa-jar-path'."
@@ -93,6 +94,7 @@
 (setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
 
 (use-package org-agenda
+  :ensure nil
   :preface
   ;; Exclude DONE state tasks from refile targets
   (defun sanityinc/verify-refile-target ()
@@ -286,6 +288,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 
 (use-package hl-line
   :after org-agenda
+  :ensure nil
   :config
   (add-hook 'org-agenda-mode-hook 'hl-line-mode))
 
@@ -297,6 +300,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 
 ;; Save the running clock and all clock history when exiting Emacs, load it on startup
 (use-package org-clock
+  :ensure nil
   :init
   (setq org-clock-persist t)
   (setq org-clock-in-resume t)

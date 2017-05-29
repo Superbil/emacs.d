@@ -15,6 +15,7 @@
               ([remap isearch-delete-char] . isearch-del-char)
               ("\C-\M-w" . isearch-yank-symbol)
               ([(control return)] . sanityinc/isearch-exit-other-end))
+  :ensure nil
   :preface
   ;; Search back/forth for the symbol at point
   ;; See http://www.emacswiki.org/emacs/SearchAtPoint

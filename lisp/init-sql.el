@@ -3,6 +3,7 @@
 (use-package sql
   :bind (:map sql-mode-map
               ("C-c C-z" . sanityinc/pop-to-sqli-buffer))
+  :ensure nil
   :init
   (setq-default sql-input-ring-file-name
                 (expand-file-name ".sqli_history" user-emacs-directory))

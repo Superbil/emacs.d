@@ -1,11 +1,12 @@
 (use-package rinari
   :diminish (rinari-minor-mode . "Rin")
-  :config (global-rinari-mode))
-
-(defun update-rails-ctags ()
-  (interactive)
-  (let ((default-directory (or (rinari-root) default-directory)))
-    (shell-command (concat "ctags -a -e -f " rinari-tags-file-name " --tag-relative -R app lib vendor test"))))
+  :preface
+  (defun update-rails-ctags ()
+    (interactive)
+    (let ((default-directory (or (rinari-root) default-directory)))
+      (shell-command (concat "ctags -a -e -f " rinari-tags-file-name " --tag-relative -R app lib vendor test"))))
+  :config
+  (global-rinari-mode))
 
 (use-package projectile-rails
   :after projectile-mode

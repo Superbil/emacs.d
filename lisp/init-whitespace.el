@@ -23,7 +23,8 @@
   (global-whitespace-cleanup-mode t))
 
 (use-package simple
-  :bind ([remap just-one-space] . cycle-spacing))
+  :bind ([remap just-one-space] . cycle-spacing)
+  :ensure nil)
 
 
 (provide 'init-whitespace)

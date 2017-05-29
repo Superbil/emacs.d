@@ -11,6 +11,7 @@
 ;; Make C-x C-e run 'eval-region if the region is active
 
 (use-package pp
+  :ensure nil
   :preface
   (defun sanityinc/eval-last-sexp-or-region (prefix)
     "Eval region from BEG to END if active, otherwise the last sexp."
@@ -29,7 +30,8 @@
 
 (use-package lisp-mode
   :bind (:map emacs-lisp-mode-map
-              ("C-x C-e" . sanityinc/eval-last-sexp-or-region)))
+              ("C-x C-e" . sanityinc/eval-last-sexp-or-region))
+  :ensure nil)
 
 (use-package ipretty
   :config
@@ -56,6 +58,7 @@
 (defvar sanityinc/repl-switch-function 'switch-to-buffer-other-window)
 
 (use-package elisp-mode
+  :ensure nil
   :preface
   (defun sanityinc/switch-to-ielm ()
     (interactive)
@@ -69,6 +72,7 @@
               ("C-c C-z" . sanityinc/switch-to-ielm)))
 
 (use-package ielm
+  :ensure nil
   :preface
   (defun sanityinc/repl-switch-back ()
     "Switch back to the buffer from which we reached this REPL."
@@ -195,6 +199,7 @@
     (eldoc-in-minibuffer-mode 1)))
 
 (use-package elisp-mode
+  :ensure nil
   :mode (("\\.emacs-project\\'" . emacs-lisp-mode)
          ("archive-contents\\'" . emacs-lisp-mode)))
 
@@ -289,7 +294,8 @@
 ;; ERT
 (use-package ert
   :bind (:map ert-results-mode-map
-              ("g" . ert-results-rerun-all-tests)))
+              ("g" . ert-results-rerun-all-tests))
+  :ensure nil)
 
 
 (defun sanityinc/cl-libify-next ()

@@ -2,6 +2,7 @@
 
 (use-package elec-pair
   :if (fboundp 'electric-pair-mode)
+  :ensure nil
   :config
   (electric-pair-mode))
 
@@ -28,6 +29,7 @@
  truncate-partial-width-windows nil)
 
 (use-package autorevert
+  :ensure nil
   :init
   (setq global-auto-revert-non-file-buffers t
         auto-revert-verbose nil)
@@ -36,6 +38,7 @@
 
  ;;; A simple visible bell which works in all terminal types
 (use-package faces
+  :ensure nil
   :preface
   (defun sanityinc/flash-mode-line ()
     (invert-face 'mode-line)
@@ -50,6 +53,7 @@
   :bind (("RET" . newline-and-indent)
          ("S-<return>" . sanityinc/newline-at-end-of-line)
          ("C-M-<backspace>" . kill-back-to-indentation))
+  :ensure nil
   :preface
   (defun sanityinc/newline-at-end-of-line ()
     "Move to end of line, enter a newline, and reindent."
@@ -95,12 +99,14 @@
 
 (use-package prog-mode
   :if (fboundp 'global-prettify-symbols-mode)
+  :ensure nil
   :config
   (global-prettify-symbols-mode))
 
 
 
 (use-package undo-tree
+  :ensure nil
   :config
   (global-undo-tree-mode)
   :diminish undo-tree-mode)
@@ -177,6 +183,7 @@
 ;; Rectangle selections, and overwrite text when the selection is active
 ;;----------------------------------------------------------------------------
 (use-package cua-base
+  :ensure nil
   ;; for rectangles, CUA is nice
   :config
   (cua-selection-mode t))
@@ -283,6 +290,7 @@
 
 (use-package indent
   :bind ("C-o" . sanityinc/open-line-with-reindent)
+  :ensure nil
   :preface
   (defun sanityinc/open-line-with-reindent (n)
     "A version of `open-line' which reindents the start and end positions.

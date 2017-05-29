@@ -1,4 +1,5 @@
 (use-package desktop
+  :ensure nil
   :init
   ;; save a list of open files in ~/.emacs.d/.emacs.desktop
   (setq desktop-path (list user-emacs-directory)
@@ -29,6 +30,7 @@
 ;; Restore histories and registers after saving
 ;;----------------------------------------------------------------------------
 (use-package savehist
+  :ensure nil
   :init
   (setq-default history-length 1000)
   :config

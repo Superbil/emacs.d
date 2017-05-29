@@ -4,7 +4,8 @@
 ;;; Changing font sizes
 (use-package default-text-scale
   :bind (("C-M-=" . default-text-scale-increase)
-         ("C-M--" . default-text-scale-decrease)))
+         ("C-M--" . default-text-scale-decrease))
+  :ensure nil)
 
 
 (defun sanityinc/maybe-adjust-visual-fill-column ()
@@ -17,7 +18,6 @@ This is helpful for writeroom-mode, in particular."
 
 (add-hook 'visual-fill-column-mode-hook
           'sanityinc/maybe-adjust-visual-fill-column)
-
 
 
 (provide 'init-fonts)

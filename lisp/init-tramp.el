@@ -1,4 +1,5 @@
 (use-package tramp
+  :ensure nil
   :init
   ;;; Use rsync is quickly or just use ssh
   (setq tramp-default-method "ssh")

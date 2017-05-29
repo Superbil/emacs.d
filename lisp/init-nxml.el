@@ -1,4 +1,5 @@
 (use-package nxml-mode
+  :ensure nil
   :mode ("<\\?xml " . nxml-mode)
   :config
   (add-auto-mode 'nxml-mode

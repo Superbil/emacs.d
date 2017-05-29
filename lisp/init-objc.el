@@ -13,6 +13,7 @@
 
 (use-package objc-mode
   :mode ("\\.m$" "\\.mm$")
+  :ensure nil
   :preface
   (defun objc-keys ()
     (local-set-key (kbd "C-x p") 'objc-headline))

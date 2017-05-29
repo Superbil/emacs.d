@@ -34,6 +34,7 @@
   :bind (:map slime-repl-mode-map
               ("TAB" . indent-for-tab-command))
   :after paredit
+  :ensure nil
   :preface
   (defun sanityinc/slime-repl-setup ()
     "Mode setup function for slime REPL."

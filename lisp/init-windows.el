@@ -2,6 +2,7 @@
 ;; Navigate window layouts with "C-c <left>" and "C-c <right>"
 ;;----------------------------------------------------------------------------
 (use-package winner
+  :ensure nil
   :config
   (add-hook 'after-init-hook 'winner-mode))
 
@@ -93,6 +94,7 @@ Call a second time to restore the original window configuration."
 
 (use-package windmove
   :if (memq window-system '(nt w32))
+  :ensure nil
   :config
   (windmove-default-keybindings 'control))
 

@@ -1,6 +1,7 @@
 (use-package alert)
 (use-package compile
   :bind (([f6] . recompile))
+  :ensure nil
   :init
   (setq-default compilation-scroll-output t)
   :after (alert ansi-color)
@@ -48,7 +49,7 @@
         (view-mode 1))))
   (add-hook 'compilation-filter-hook 'sanityinc/colourise-compilation-buffer))
 
-(use-package cmd-to-echo :ensure t)
+(use-package cmd-to-echo)
 
 
 (provide 'init-compile)

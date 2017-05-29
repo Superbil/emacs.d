@@ -48,6 +48,7 @@
 
 ;; js-mode
 (use-package js-mode
+  :ensure nil
   :mode ("node" . preferred-javascript-mode)
   :init
   (setq-default js-indent-level preferred-javascript-indent-level))

@@ -1,5 +1,6 @@
 (use-package hippie-expand
   :bind ("M-/" . hippie-expand)
+  :ensure nil
   :commands hippie-expand
   :config
   (setq hippie-expand-try-functions-list

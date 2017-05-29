@@ -1,4 +1,5 @@
 (use-package gnus
+  :ensure nil
   :init
   (setq gnus-init-file (locate-user-emacs-file "gnus/.gnus.el"))
   (setq gnus-home-directory (locate-user-emacs-file "gnus"))
@@ -24,8 +25,10 @@
 
 (use-package mailcap
   :if *is-a-mac*
+  :ensure nil
   :config
   (mailcap-add-mailcap-entry "application" "pdf" '((viewer "/usr/bin/qlmanage -p %s") (type . "application/pdf")))
   (mailcap-add-mailcap-entry "image" "jpeg" '((viewer "/usr/bin/qlmanage -p %s") (type . "image/*"))))
+
 
 (provide 'init-gnus)

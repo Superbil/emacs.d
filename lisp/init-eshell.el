@@ -2,6 +2,7 @@
   :bind (("C-x m" . eshell)
          ;; Change default mail to "C-x M"
          ("C-x M" . compose-mail))
+  :ensure nil
   :init
   ;; http://sakito.jp/emacs/emacsshell.html
   (setq system-uses-terminfo nil

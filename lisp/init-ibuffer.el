@@ -16,6 +16,7 @@
 
 (use-package ibuffer
   :bind (("C-x C-b" . ibuffer))
+  :ensure nil
   :init
   (setq ibuffer-filter-group-name-face 'font-lock-doc-face)
   ;; Modify the default ibuffer-formats (toggle with `)

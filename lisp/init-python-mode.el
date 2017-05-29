@@ -1,4 +1,5 @@
 (use-package python-mode
+  :ensure nil
   :mode (("SConstruct\\'" . python-mode)
          ("SConscript\\'" . python-mode)))
 

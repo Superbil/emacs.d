@@ -14,6 +14,7 @@
     (start-process "osx-open" nil "open" open-path)))
 
 (use-package f
+  :ensure nil
   :config
   (defun open-xcode-workspace (path)
     "Open workspace with Xcode at `PATH'."

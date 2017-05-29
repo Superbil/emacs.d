@@ -10,8 +10,11 @@
   :config
   ;; Indentation
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+  (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
-  (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template))
+  (after-load 'haskell
+    (bind-key "M-N" 'haskell-goto-next-error interactive-haskell-mode-map)
+    (bind-key "M-P" 'haskell-goto-prev-error interactive-haskell-mode-map)))
 
 
 ;; Use intero for completion and flycheck
@@ -21,9 +24,9 @@
   :config
   (intro-global-mode)
   (add-hook 'haskell-mode-hook 'eldoc-mode)
-  (use-package flycheck
-    :config (flycheck-add-next-checker 'intero
-                                       '(warning . haskell-hlint))))
+  (after-load 'flycheck
+    (flycheck-add-next-checker 'intero
+                               '(warning . haskell-hlint))))
 
 
 
@@ -43,12 +46,6 @@
 (use-package page-break-lines
   :after haskell-mode
   :config (push 'haskell-mode page-break-lines-modes))
-
-
-(use-package haskell
-  :bind (:map interactive-haskell-mode-map
-              ("M-N" . haskell-goto-next-error)
-              ("M-P" . haskell-goto-prev-error)))
 
 
 (provide 'init-haskell)

@@ -23,10 +23,8 @@
   (when *is-a-mac*
     (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))
 
-  (use-package magit-section
-    :bind (:map magit-status-mode-map
-                ("C-M-<up>" . magit-section-up)
-                ))
+  (after-load 'magit-section
+    (bind-key "C-M-<up>" 'magit-section-up magit-status-mode-map))
 
   (bind-key "M-w" 'whole-line-or-region-kill-ring-save magit-mode-map)
 
@@ -39,7 +37,8 @@
 
 ;; Convenient binding for vc-git-grep
 (use-package vc-git
-  :bind ("C-x v f" . vc-git-grep))
+  :bind ("C-x v f" . vc-git-grep)
+  :ensure nil)
 
 
 ;;; git-svn support
@@ -48,6 +47,7 @@
   (add-hook 'magit-mode-hook (lambda () (magit-svn-mode))))
 
 (use-package compile
+  :ensure nil
   :preface
   (defvar git-svn--available-commands nil "Cached list of git svn subcommands")
 
@@ -82,5 +82,6 @@
               ("C-c C-f" . magit-gitflow-popup))
   :config
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+
 
 (provide 'init-git)

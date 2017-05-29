@@ -2,7 +2,7 @@
 (use-package ruby-mode
   :bind (:map ruby-mode-map
               ("TAB" . indent-for-tab-command))
-
+  :ensure nil
   :mode ("Rakefile\\'" "\\.rake\\'" "\\.rxml\\'"
          "\\.rjs\\'" "\\.irbrc\\'" "\\.pryrc\\'" "\\.builder\\'" "\\.ru\\'"
          "\\.gemspec\\'" "Gemfile\\'" "Kirkfile\\'"
@@ -24,6 +24,7 @@
 (use-package ruby-hash-syntax)
 
 (use-package conf-mode
+  :ensure nil
   :mode "Gemfile\\.lock\\'")
 
 (use-package page-break-lines
@@ -61,6 +62,7 @@
 
 
 (use-package ruby-mode
+  :ensure nil
   :preface
   ;; Customise highlight-symbol to not highlight do/end/class/def etc.
   (defun sanityinc/suppress-ruby-mode-keyword-highlights ()
