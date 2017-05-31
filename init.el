@@ -102,7 +102,6 @@
 (require 'init-elm)
 
 (require 'init-osx-plist)
-(require 'init-ascii)
 
 (require 'init-paredit)
 (require 'init-lisp)
