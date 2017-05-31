@@ -69,5 +69,13 @@ BEG and END (region to sort)."
             (replace-match "" nil nil))
           (goto-char next-line))))))
 
+;;----------------------------------------------------------------------------
+;; Ping DNS
+;;----------------------------------------------------------------------------
+(defun ping-google-dns ()
+  "Ping google's DNS."
+  (interactive)
+  (ping "8.8.8.8"))
+
 
 (provide 'init-misc)
