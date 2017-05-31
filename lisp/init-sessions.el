@@ -75,5 +75,12 @@
                 tags-file-name
                 tags-table-list)))
 
+;;----------------------------------------------------------------------------
+;; Auto cleanup older buffers
+;;----------------------------------------------------------------------------
+(use-package midnight
+  :init
+  (setq midnight-delay 0))
+
 
 (provide 'init-sessions)
