@@ -56,5 +56,14 @@
         (error "Cannot open tramp file")
       (browse-url (concat "file://" file-name)))))
 
+;;----------------------------------------------------------------------------
+;; Check filename before call setq
+;;----------------------------------------------------------------------------
+(defmacro setq-when-file-exists (sym filename)
+  "Set SYM when FILENAME is existed."
+  (declare (indent 1) (debug t))
+  `(when (file-exists-p ,filename)
+     (setq ,sym (expand-file-name ,filename))))
+
 
 (provide 'init-utils)
