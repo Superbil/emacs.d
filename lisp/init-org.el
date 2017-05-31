@@ -410,6 +410,8 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
               ("M-h" . nil)
               ("C-c g" . org-mac-grab-link)))
 
+(use-package org-bullets)
+
 (use-package gnuplot
   :after org-babel
   :config
