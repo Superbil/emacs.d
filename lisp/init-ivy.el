@@ -12,13 +12,7 @@
                 '((man . "^")
                   (woman . "^")))
   :config
-  (add-hook 'after-init-hook
-            (lambda ()
-              (when (bound-and-true-p ido-ubiquitous-mode)
-                (ido-ubiquitous-mode -1))
-              (when (bound-and-true-p ido-mode)
-                (ido-mode -1))
-              (ivy-mode 1)))
+  (add-hook 'after-init-hook (lambda () (ivy-mode 1)))
   :diminish ivy-mode)
 
 (use-package ivy-historian
