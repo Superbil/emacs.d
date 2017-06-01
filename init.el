@@ -37,7 +37,7 @@
 ;; Setup scrtch welcome message
 ;;----------------------------------------------------------------------------
 (setq-default initial-scratch-message
-              (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
+              (concat ";; Happy hacking, " user-login-name " - Emacs ❤️ you!\n\n"))
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
