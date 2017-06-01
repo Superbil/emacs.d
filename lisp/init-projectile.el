@@ -2,6 +2,8 @@
   :bind (:map projectile-command-map
               ("P" . projectile-switch-open-vc))
   :after (text-mode prog-mode)
+  :init
+  (setq projectile-completion-system 'ivy)
   :preface
   (defun projectile-switch-open-vc (&optional arg)
     "Switch to a project we have currently opened.
@@ -20,6 +22,8 @@
     (projectile-with-default-dir (projectile-project-root)
       (open-xcode-workspace (projectile-project-root))))
   :config
+  (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '(".DS_Store" ".gitignore")))
+
   (fullframe projectile-switch-open-vc magit-mode-quit-window)
 
   (after-load 'magit
