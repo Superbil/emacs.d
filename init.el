@@ -120,8 +120,9 @@
 (require 'init-dash)
 (require 'init-ledger)
 (require 'init-projectile)
-;; Extra packages which don't require any configuration
+(require 'init-games)
 
+;; Extra packages which don't require any configuration
 (use-package lua-mode)
 (use-package htmlize)
 (use-package dsvn)
