@@ -241,6 +241,10 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
                        ((org-agenda-overriding-header "List TODO with @Home")))
             (tags-todo "@Computer/-DONE-NEXT"
                        ((org-agenda-overriding-header "List TODO with @Computer")))
+            (tags-todo "{@Reading.*}/-DONE-NEXT"
+                       ((org-agenda-overriding-header "List TODO with @Reading")))
+            (tags-todo "{@Watching.*}/-DONE-NEXT"
+                       ((org-agenda-overriding-header "List TODO with @Watching")))
             (tags-todo "HOLD"
                        ((org-agenda-overriding-header "On Hold")
                         ;; TODO: skip if a parent is WAITING or HOLD
