@@ -30,6 +30,8 @@
 
   (fullframe magit-status magit-mode-quit-window))
 
+(use-package magit-lfs)
+
 (use-package git-commit
   :config
   (add-hook 'git-commit-mode-hook 'goto-address-mode))
