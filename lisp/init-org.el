@@ -215,7 +215,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
              (quote (time-up priority-down tag-up)))
             (org-deadline-warning-days 0)))
           (" " "GTD"
-           ((tags-todo "-CANCELLED/!NEXT"
+           ((tags-todo "-CANCELLED-WAITING-HOLD/!NEXT"
                        ((org-agenda-overriding-header "What you should doing right now!")
                         (org-agenda-skip-function t)
                         (org-tags-match-list-sublevels t)
@@ -245,19 +245,19 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
                        ((org-agenda-overriding-header "List TODO with @Reading")))
             (tags-todo "{@Watching.*}/-DONE-NEXT"
                        ((org-agenda-overriding-header "List TODO with @Watching")))
-            (tags-todo "HOLD"
+            (tags-todo "/HOLD"
                        ((org-agenda-overriding-header "On Hold")
                         ;; TODO: skip if a parent is WAITING or HOLD
                         (org-tags-match-list-sublevels nil)
                         (org-agenda-sorting-strategy
                          '(category-keep))))
-            (tags-todo "WAITING"
+            (tags-todo "/WAITING"
                        ((org-agenda-overriding-header "Waiting")
                         (org-agenda-tags-todo-honor-ignore-options t)
                         (org-agenda-todo-ignore-scheduled 'future)
                         (org-agenda-sorting-strategy
                          '(category-keep))))
-            (tags-todo "-NEXT"
+            (tags-todo "/-NEXT"
                        ((org-agenda-overriding-header "Orphaned Tasks")
                         (org-agenda-tags-todo-honor-ignore-options t)
                         (org-agenda-todo-ignore-scheduled 'future)
