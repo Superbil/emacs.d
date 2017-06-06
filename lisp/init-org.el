@@ -203,7 +203,6 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
           (todo category-up effort-up)
           (tags category-up effort-up)
           (search category-up))
-        org-agenda-window-setup 'current-window
         org-agenda-custom-commands
         `(("k" "Use org-capture capture somethings"
            org-capture "")
@@ -243,7 +242,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
                        ((org-agenda-overriding-header "List TODO with @Computer")))
             (tags-todo "{@Reading.*}/-DONE-NEXT"
                        ((org-agenda-overriding-header "List TODO with @Reading")))
-            (tags-todo "{@Watching.*}/-DONE-NEXT"
+            (tags-todo "@Watching/-DONE-NEXT"
                        ((org-agenda-overriding-header "List TODO with @Watching")))
             (tags-todo "/HOLD"
                        ((org-agenda-overriding-header "On Hold")
@@ -280,8 +279,8 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
           ("he" "Errands" tags-todo "@Errands")
           ("hh" "Home" tags-todo "@Home")
           ("hc" "Computer" tags-todo "@Computer")
-          ("hr" "Reading" tags-todo "@Reading|@Reading_web|@Reading_book")
-          ("hw" "Watching" search "@Watching")
+          ("hr" "Reading" tags "{@Reading.*}")
+          ("hw" "Watching" tags "@Watching")
           ("hg" "Gaming" tags-todo "@Gaming")
           ;; TODO: read tags from org-tag-alist
           ("r" "Tasks to Refile" tags "@Reading|@Reading_web|@Reading_book|@Home|@Computer|@Watching|@Gaming"
