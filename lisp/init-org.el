@@ -203,6 +203,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
           (todo category-up effort-up)
           (tags category-up effort-up)
           (search category-up))
+        org-agenda-window-setup 'current-window
         org-agenda-custom-commands
         `(("k" "Use org-capture capture somethings"
            org-capture "")
