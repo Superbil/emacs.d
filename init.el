@@ -97,7 +97,6 @@
 (require 'init-zsh)
 
 (require 'init-javascript)
-(require 'init-elm)
 
 (require 'init-osx-plist)
 
