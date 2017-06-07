@@ -91,7 +91,6 @@
 (require 'init-haskell)
 (require 'init-ruby-mode)
 (require 'init-yaml)
-(require 'init-rails)
 (require 'init-objc)
 (require 'init-sql)
 (require 'init-eshell)
