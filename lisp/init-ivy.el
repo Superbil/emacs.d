@@ -17,14 +17,14 @@
 (use-package ivy-historian
   :after ivy-mode
   :config
-  (add-hook 'after-init-hook (lambda () (ivy-historian-mode t))))
+  (ivy-historian-mode t))
 
 (use-package counsel
   :after ivy-mode
   :init
   (setq-default counsel-mode-override-describe-bindings t)
   :config
-  (add-hook 'after-init-hook 'counsel-mode)
+  (counsel-mode)
   :diminish counsel-mode)
 
 
