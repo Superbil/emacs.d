@@ -3,7 +3,6 @@
   (:map ivy-minibuffer-map
         ("C-j" . ivy-immediate-done)
         ("RET" . ivy-alt-done))
-  :ensure t
   :init
   (setq-default ivy-use-virtual-buffers t
                 ivy-count-format ""
