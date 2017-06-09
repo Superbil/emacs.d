@@ -1,6 +1,6 @@
 ;; TODO: link commits from vc-log to magit-show-commit
 ;; TODO: smerge-mode
-(use-package git-blame)
+(use-package git-blamed)
 (use-package gitignore-mode)
 (use-package gitconfig-mode
   :mode ".gitconfig-local\\'")
