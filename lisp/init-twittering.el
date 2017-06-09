@@ -4,22 +4,23 @@
   ;; Avoid to setup password each times
   (setq twittering-use-master-password t)
 
-  :bind (:map twittering-mode-map
-              ;; favorite/unfavorite hotkey
-              ("C-c f" . twittering-favorite)
-              ("C-c F" . twittering-unfavorite)
+  :bind (("C-x t" . twit)
+         :map twittering-mode-map
+         ;; favorite/unfavorite hotkey
+         ("C-c f" . twittering-favorite)
+         ("C-c F" . twittering-unfavorite)
 
-              ;; rebind hotkey
-              ("[" . twittering-switch-to-previous-timeline)
-              ("]" . twittering-switch-to-next-timeline)
-              ("f" . twittering-other-user-timeline)
-              ("b" . twittering-goto-first-status)
-              ("n" . twittering-goto-next-status)
-              ("p" . twittering-goto-previous-status)
-              ("N" . twittering-goto-next-status-of-user)
-              ("P" . twittering-goto-previous-status-of-user)
-              ;; i-search
-              ("s" . isearch-forward))
+         ;; rebind hotkey
+         ("[" . twittering-switch-to-previous-timeline)
+         ("]" . twittering-switch-to-next-timeline)
+         ("f" . twittering-other-user-timeline)
+         ("b" . twittering-goto-first-status)
+         ("n" . twittering-goto-next-status)
+         ("p" . twittering-goto-previous-status)
+         ("N" . twittering-goto-next-status-of-user)
+         ("P" . twittering-goto-previous-status-of-user)
+         ;; i-search
+         ("s" . isearch-forward))
 
   :config
   (add-hook 'twittering-mode-hook 'sanityinc/no-trailing-whitespace)
