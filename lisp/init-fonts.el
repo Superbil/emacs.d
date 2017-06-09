@@ -4,8 +4,7 @@
 ;;; Changing font sizes
 (use-package default-text-scale
   :bind (("C-M-=" . default-text-scale-increase)
-         ("C-M--" . default-text-scale-decrease))
-  :ensure nil)
+         ("C-M--" . default-text-scale-decrease)))
 
 
 (defun sanityinc/maybe-adjust-visual-fill-column ()
