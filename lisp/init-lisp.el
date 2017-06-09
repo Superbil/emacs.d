@@ -1,9 +1,10 @@
 (use-package elisp-slime-nav
+  :after elisp-mode
   :config
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
     (add-hook hook 'turn-on-elisp-slime-nav-mode)))
 
-(add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ELisp")))
+
 
 (use-package lively)
 
@@ -34,29 +35,13 @@
   :ensure nil)
 
 (use-package ipretty
+  :after pp
   :config
   (ipretty-mode 1))
-
-
-(defun sanityinc/maybe-set-bundled-elisp-readonly ()
-  "If this elisp appears to be part of Emacs, then disallow editing."
-  (when (and (buffer-file-name)
-             (string-match-p "\\.el\\.gz\\'" (buffer-file-name)))
-    (setq buffer-read-only t)
-    (view-mode 1)))
-
-(add-hook 'emacs-lisp-mode-hook 'sanityinc/maybe-set-bundled-elisp-readonly)
 
 
 ;; Use C-c C-z to toggle between elisp files and an ielm session
 ;; I might generalise this to ruby etc., or even just adopt the repl-toggle package.
-
-(defvar sanityinc/repl-original-buffer nil
-  "Buffer from which we jumped to this REPL.")
-(make-variable-buffer-local 'sanityinc/repl-original-buffer)
-
-(defvar sanityinc/repl-switch-function 'switch-to-buffer-other-window)
-
 (use-package elisp-mode
   :ensure nil
   :preface
@@ -68,11 +53,28 @@
         (ielm))
       (setq sanityinc/repl-original-buffer orig-buffer)))
 
+  (defun sanityinc/maybe-set-bundled-elisp-readonly ()
+    "If this elisp appears to be part of Emacs, then disallow editing."
+    (when (and (buffer-file-name)
+               (string-match-p "\\.el\\.gz\\'" (buffer-file-name)))
+      (setq buffer-read-only t)
+      (view-mode 1)))
+
   :bind (:map emacs-lisp-mode-map
-              ("C-c C-z" . sanityinc/switch-to-ielm)))
+              ("C-c C-z" . sanityinc/switch-to-ielm))
+  :config
+  (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ELisp")))
+  (add-hook 'emacs-lisp-mode-hook 'sanityinc/maybe-set-bundled-elisp-readonly))
 
 (use-package ielm
   :ensure nil
+  :after elisp-mode
+  :init
+  (defvar sanityinc/repl-original-buffer nil
+    "Buffer from which we jumped to this REPL.")
+  (make-variable-buffer-local 'sanityinc/repl-original-buffer)
+  (defvar sanityinc/repl-switch-function 'switch-to-buffer-other-window)
+
   :preface
   (defun sanityinc/repl-switch-back ()
     "Switch back to the buffer from which we reached this REPL."
@@ -80,6 +82,7 @@
     (if sanityinc/repl-original-buffer
         (funcall sanityinc/repl-switch-function sanityinc/repl-original-buffer)
       (error "No original buffer")))
+
   :bind (:map ielm-map
               ("C-c C-z" . sanityinc/repl-switch-back)))
 
@@ -93,7 +96,6 @@
   (add-to-list 'hippie-expand-try-functions-list 'try-complete-lisp-symbol t)
   (add-to-list 'hippie-expand-try-functions-list 'try-complete-lisp-symbol-partially t)
   (add-to-list 'hippie-expand-try-functions-list 'my/try-complete-lisp-symbol-without-namespace t))
-
 
 ;; ----------------------------------------------------------------------------
 ;; Automatic byte compilation
@@ -154,16 +156,18 @@
   (when (bound-and-true-p indent-guide-mode)
     (indent-guide-mode -1)))
 
-(defvar sanityinc/lispy-modes-hook
-  '(enable-paredit-mode
-    turn-on-eldoc-mode
-    redshank-mode
-    sanityinc/disable-indent-guide
-    sanityinc/enable-check-parens-on-save)
-  "Hook run in all Lisp modes.")
-
-
+;; ----------------------------------------------------------------------------
+;; Minor mode to aggressively keep your code always indented
+;; ----------------------------------------------------------------------------
 (use-package aggressive-indent
+  :init
+  (defvar sanityinc/lispy-modes-hook
+    '(enable-paredit-mode
+      turn-on-eldoc-mode
+      redshank-mode
+      sanityinc/disable-indent-guide
+      sanityinc/enable-check-parens-on-save)
+    "Hook run in all Lisp modes.")
   :config
   (add-to-list 'sanityinc/lispy-modes-hook 'aggressive-indent-mode))
 
@@ -323,6 +327,7 @@
     (when (fboundp 'aggressive-indent-indent-defun)
       (aggressive-indent-indent-defun))))
 
+
 (use-package cask-mode)
 
 
