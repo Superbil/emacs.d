@@ -1,5 +1,3 @@
-(use-package sql-indent)
-
 (use-package sql
   :bind (:map sql-mode-map
               ("C-c C-z" . sanityinc/pop-to-sqli-buffer))
@@ -39,6 +37,9 @@
     (add-hook 'sql-interactive-mode-hook 'sanityinc/maybe-set-dash-db-docset)
     (defadvice sql-set-product (after set-dash-docset activate)
       (sanityinc/maybe-set-dash-db-docset))))
+
+(use-package sql-indent
+  :after sql-mode)
 
 (use-package page-break-lines
   :after sql-mode
