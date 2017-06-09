@@ -27,17 +27,12 @@
 
 ;;; Standard package repositories
 
-;; We include the org repository for completeness, but don't normally
-;; use it.
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives
+             `("org" . "http://orgmode.org/elpa/"))
 
 ;;; Also use Melpa for most packages
 (add-to-list 'package-archives
              `("melpa" . "https://melpa.org/packages/"))
-
-;; NOTE: In case of MELPA problems, the official mirror URL is
-;; https://www.mirrorservice.org/sites/stable.melpa.org/packages/
-
 
 
 ;;; Fire up package.el

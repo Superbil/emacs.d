@@ -3,8 +3,10 @@
 (use-package org-cliplink)
 
 (use-package org
+  :pin org
   :bind (("C-c l" . org-store-link)
-         ("C-c a" . org-agenda)))
+         ("C-c a" . org-agenda))
+  :config (require 'org))
 
 ;; Various preferences
 (setq org-catch-invisible-edits 'show
@@ -164,7 +166,7 @@
                       (:startgrouptag)
                       ("@Reading_book" . ?t)
                       ("@Reading_web" . ?y)
-                      (:endgroup)
+                      (:endgrouptag)
 
                       ("@Gaming" . ?g)
                       ("@Watching" . ?w)))
