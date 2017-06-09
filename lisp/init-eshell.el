@@ -51,7 +51,11 @@
   ;; set prompt for eshell
   (setq eshell-prompt-function 'shk-eshell-prompt)
   ;; Make eshell prompt more colorful
-  (add-to-list 'eshell-output-filter-functions 'colorfy-eshell-prompt))
+
+  (use-package esh-mode
+    :ensure nil
+    :config
+    (add-to-list 'eshell-output-filter-functions 'colorfy-eshell-prompt)))
 
 
 (provide 'init-eshell)
