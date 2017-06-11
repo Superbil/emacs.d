@@ -84,7 +84,6 @@
 (require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
-(require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
 (require 'init-html)
