@@ -38,6 +38,8 @@
 
 (setq use-package-always-ensure t)
 
+(use-package try)
+
 (use-package benchmark-init)
 
 (require 'diminish)
