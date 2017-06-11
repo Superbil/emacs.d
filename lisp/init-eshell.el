@@ -26,6 +26,7 @@
        " $")
      " "))
 
+  ;; Make eshell prompt more colorful
   (defun colorfy-eshell-prompt ()
     "Colorfy eshell prompt according to `user@hostname' regexp."
     (let* ((mpoint)
@@ -50,7 +51,6 @@
 
   ;; set prompt for eshell
   (setq eshell-prompt-function 'shk-eshell-prompt)
-  ;; Make eshell prompt more colorful
 
   (use-package esh-mode
     :ensure nil
