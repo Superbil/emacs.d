@@ -3,7 +3,9 @@
               ("P" . projectile-switch-open-vc))
   :after (text-mode prog-mode)
   :init
-  (setq projectile-completion-system 'ivy)
+  (setq projectile-enable-caching t
+        projectile-verbose nil
+        projectile-completion-system 'ivy)
   :preface
   (defun projectile-switch-open-vc (&optional arg)
     "Switch to a project we have currently opened.
@@ -26,12 +28,14 @@
 
   (fullframe projectile-switch-open-vc magit-mode-quit-window)
 
-  (after-load 'magit
-    (add-hook 'magit-status-mode-hook 'projectile-mode))
-
   (after-load 'guide-key
     (dolist (keys `("C-c p" "C-c p 4" "C-c p s" "C-c p x"))
-      (add-to-list 'guide-key/guide-key-sequence keys))))
+      (add-to-list 'guide-key/guide-key-sequence keys)))
+
+  (add-hook 'after-init-hook
+            (lambda ()
+              (projectile-mode)
+              (projectile-cleanup-known-projects))))
 
 
 (provide 'init-projectile)
