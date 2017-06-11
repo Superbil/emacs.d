@@ -1,9 +1,10 @@
 (use-package anything
-  :preface
+  :init
   (defvar anything-c-source-objc-headline
     '((name . "Objective-C Headline")
       (headline  "^[-+@]\\|^#pragma mark")))
 
+  :preface
   (defun objc-headline ()
     (interactive)
     ;; Set to 500 so it is displayed even if all methods are not narrowed down.
