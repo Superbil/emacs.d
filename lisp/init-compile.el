@@ -1,11 +1,5 @@
-(use-package alert)
-(use-package compile
-  :bind (([f6] . recompile))
-  :ensure nil
-  :init
-  (setq-default compilation-scroll-output t)
-  :after (alert ansi-color)
-  :preface
+(use-package alert
+  :config
   (defun sanityinc/alert-after-compilation-finish (buf result)
     "Use `alert' to report compilation RESULT if BUF is hidden."
     (when (buffer-live-p buf)
@@ -16,7 +10,16 @@
                 nil)
         (alert (concat "Compilation " result)
                :buffer buf
-               :category 'compilation))))
+               :category 'compilation)))))
+
+(use-package compile
+  :bind (([f6] . recompile))
+  :ensure nil
+  :defer t
+  :init
+  (setq-default compilation-scroll-output t)
+  :after (alert ansi-color)
+  :preface
   (defvar sanityinc/last-compilation-buffer nil
     "The last buffer in which compilation took place.")
   (defun sanityinc/colourise-compilation-buffer ()
@@ -25,6 +28,7 @@
   :config
   ;; Customize `alert-default-style' to get messages after compilation
   (add-hook 'compilation-finish-functions 'sanityinc/alert-after-compilation-finish)
+
   (defadvice compilation-start (after sanityinc/save-compilation-buffer activate)
     "Save the compilation buffer to find it later."
     (setq sanityinc/last-compilation-buffer next-error-last-buffer))
