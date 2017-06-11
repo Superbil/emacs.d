@@ -45,6 +45,7 @@
 
 (use-package command-log-mode)
 
+(require 'init-async)
 (require 'init-frame-hooks)
 (require 'init-term)
 (require 'init-themes)
