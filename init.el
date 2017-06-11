@@ -73,6 +73,7 @@
 
 (require 'init-paredit)
 (require 'init-lisp)
+(require 'init-slime)
 
 (require 'init-vc)
 (require 'init-git)
@@ -103,7 +104,6 @@
 
 (require 'init-osx-plist)
 
-(require 'init-slime)
 (require 'init-clojure)
 (require 'init-clojure-cider)
 (require 'init-common-lisp)
