@@ -3,9 +3,7 @@
   :bind (:map ruby-mode-map
               ("TAB" . indent-for-tab-command))
   :ensure nil
-  :mode ("Rakefile\\'" "\\.rake\\'" "\\.rxml\\'"
-         "\\.rjs\\'" "\\.irbrc\\'" "\\.pryrc\\'" "\\.builder\\'" "\\.ru\\'"
-         "\\.gemspec\\'" "Gemfile\\'" "Kirkfile\\'"
+  :mode ("Rakefile\\'"
          "Podfile\\'" "\\.podspec\\'")
 
   :init
@@ -33,43 +31,6 @@
   :config
   (push 'ruby-mode page-break-lines-modes))
 
-
-;;; Inferior ruby
-(use-package inf-ruby)
-
-
-;;; Ruby compilation
-(use-package ruby-compilation
-  :after ruby-mode
-  :bind (:map ruby-mode-map
-              ([S-f7] . ruby-compilation-this-buffer)
-              ([f7] . ruby-compilation-this-test))
-  :config
-  (defalias 'rake 'ruby-compilation-rake))
-
-
-;;; Robe
-(use-package robe
-  :after ruby-mode
-  :config
-  (add-hook 'ruby-mode-hook 'robe-mode)
-
-  (after-load 'company
-    (dolist (hook '(ruby-mode-hook inf-ruby-mode-hook html-erb-mode-hook haml-mode))
-      (add-hook hook
-                (lambda () (sanityinc/local-push-company-backend 'company-robe))))))
-
-
-;;; ri support
-(use-package yari
-  :config
-  (defalias 'ri 'yari))
-
-
-(use-package goto-gem)
-
-
-(use-package bundler)
 
 
 (use-package rvm
