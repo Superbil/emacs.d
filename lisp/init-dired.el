@@ -11,6 +11,7 @@
 (use-package dired
   :commands (dired find-name-dired find-dired)
   :ensure nil
+  :defer t
   :preface
   (setq-default diredp-hide-details-initially-flag nil
                 dired-dwim-target t)
