@@ -17,5 +17,7 @@
   (setq web-mode-enable-auto-quoting t)
   :mode ("\\.html?\\'" . web-mode))
 
+(use-package htmlize)
+
 
 (provide 'init-html)
