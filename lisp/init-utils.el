@@ -1,3 +1,6 @@
+;;----------------------------------------------------------------------------
+;; After-load to lazy execute body
+;;----------------------------------------------------------------------------
 (if (fboundp 'with-eval-after-load)
     (defalias 'after-load 'with-eval-after-load)
   (defmacro after-load (feature &rest body)
@@ -55,6 +58,7 @@
              (tramp-tramp-file-p file-name))
         (error "Cannot open tramp file")
       (browse-url (concat "file://" file-name)))))
+
 
 ;;----------------------------------------------------------------------------
 ;; Check filename before call setq
