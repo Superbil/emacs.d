@@ -199,7 +199,9 @@
 ;;----------------------------------------------------------------------------
 (use-package avy
   :bind (("C-;" . avy-goto-word-or-subword-1)
-         ("C-:" . avy-goto-char)))
+         ("C-:" . avy-goto-char))
+  :config
+  (avy-setup-default))
 
 ;;----------------------------------------------------------------------------
 (use-package multiple-cursors
