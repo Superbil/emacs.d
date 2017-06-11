@@ -123,7 +123,6 @@
 ;; Extra packages which don't require any configuration
 (use-package lua-mode)
 (use-package htmlize)
-(use-package dsvn)
 (use-package osx-location
   :if *is-a-mac*)
 (use-package regex-tool
