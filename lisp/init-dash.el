@@ -1,20 +1,15 @@
-;; Support for the http://kapeli.com/dash documentation browser
 (use-package dash
+  :config (dash-enable-font-lock))
+
+(use-package dash-at-point
+  :bind  ("C-c D" . dash-at-point)
   :preface
-  (defun sanityinc/dash-installed-p ()
-    "Return t if Dash is installed on this machine, or nil otherwise."
-    (let ((lsregister "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister"))
-      (and (file-executable-p lsregister)
-           (not (string-equal
-                 ""
-                 (shell-command-to-string
-                  (concat lsregister " -dump|grep com.kapeli.dash")))))))
+  (defun dash-at-point-installed-docsets ()
+    (let ((dash-defaults (shell-command-to-string "defaults read com.kapeli.dashdoc docsets"))
+          (keyword-regexp (rx (or "platform" "pluginKeyword") space "=" space (group (1+ word)) ";\n")))
+      (-distinct (cl-map 'list #'cdr (s-match-strings-all keyword-regexp dash-defaults)))))
   :config
-  (when (and *is-a-mac* (not (package-installed-p 'dash-at-point)))
-    (message "Checking whether Dash is installed")
-    (when (sanityinc/dash-installed-p)
-      (use-package dash-at-point
-        :bind  ("C-c D" . dash-at-point)))))
+  (setq dash-at-point-docsets (or (dash-at-point-installed-docsets) dash-at-point-docsets)))
 
 
 (provide 'init-dash)
