@@ -70,6 +70,9 @@
 (require 'init-whitespace)
 (require 'init-fci)
 
+(require 'init-paredit)
+(require 'init-lisp)
+
 (require 'init-vc)
 (require 'init-git)
 (require 'init-github)
@@ -100,8 +103,6 @@
 
 (require 'init-osx-plist)
 
-(require 'init-paredit)
-(require 'init-lisp)
 (require 'init-slime)
 (require 'init-clojure)
 (require 'init-clojure-cider)
