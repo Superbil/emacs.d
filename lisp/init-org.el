@@ -200,11 +200,10 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
         org-agenda-start-on-weekday nil
         org-agenda-span 'day
         org-agenda-include-diary nil
-        org-agenda-sorting-strategy
-        '((agenda habit-down time-up user-defined-up effort-up category-keep)
-          (todo category-up effort-up)
-          (tags category-up effort-up)
-          (search category-up))
+        org-agenda-sorting-strategy '((agenda habit-down time-up user-defined-up effort-up category-keep)
+                                      (todo category-up effort-up)
+                                      (tags category-up effort-up)
+                                      (search category-up))
         org-agenda-window-setup 'current-window
         org-agenda-custom-commands
         `(("k" "Use org-capture capture somethings"
