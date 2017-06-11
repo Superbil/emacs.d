@@ -114,6 +114,7 @@
 (require 'init-misc)
 (require 'init-tramp)
 
+(require 'init-calendar)
 (require 'init-folding)
 (require 'init-dash)
 (require 'init-ledger)
