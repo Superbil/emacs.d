@@ -1,12 +1,9 @@
-(use-package org-fstree)
-
-(use-package org-cliplink)
-
 (use-package org
   :pin org
   :bind (("C-c l" . org-store-link)
-         ("C-c a" . org-agenda))
-  :config (require 'org))
+         ("C-c a" . org-agenda)
+         :map org-mode-map
+         ("C-M-<up>" . org-up-element)))
 
 ;; Various preferences
 (setq org-catch-invisible-edits 'show
@@ -33,6 +30,7 @@
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
 (use-package ob-ditaa
   :ensure nil
+  :after ob
   :preface
   (defun sanityinc/grab-ditaa (url jar-name)
     "Download URL and extract JAR-NAME as `org-ditaa-jar-path'."
@@ -405,17 +403,21 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 ;;                   (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
 ;;                 (insert (match-string 0))))))
 
-
-(use-package org
-  :bind (:map org-mode-map ("C-M-<up>" . org-up-element)))
-
+
 (use-package org-mac-link
   :if *is-a-mac*
   :bind (:map org-mode-map
               ("M-h" . nil)
-              ("C-c g" . org-mac-grab-link)))
+              ("C-c g" . org-mac-grab-link))
+  :after org)
 
 (use-package org-bullets)
+
+(use-package org-fstree
+  :after org)
+
+(use-package org-cliplink
+  :after org)
 
 (use-package gnuplot
   :after org-babel
