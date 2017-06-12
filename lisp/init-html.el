@@ -8,6 +8,7 @@
   (add-hook 'sgml-mode-hook (lambda () (tagedit-mode 1))))
 
 (use-package web-mode
+  :pin melpa-stable
   :init
   (setq web-mode-engines-alist '(("django" . "\\.html\\'")))
   (setq web-mode-ac-sources-alist '(("css" . (ac-source-css-property))
