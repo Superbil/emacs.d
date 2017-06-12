@@ -1,25 +1,15 @@
 ;;; Find and load the correct package.el
 
-;; When switching between Emacs 23 and 24, we always use the bundled package.el in Emacs 24
-(let ((package-el-site-lisp-dir
-       (expand-file-name "site-lisp/package" user-emacs-directory)))
-  (when (and (file-directory-p package-el-site-lisp-dir)
-             (> emacs-major-version 23))
-    (message "Removing local package.el from load-path to avoid shadowing bundled version")
-    (setq load-path (remove package-el-site-lisp-dir load-path))))
-
 (require 'package)
-
 
 
 ;;; Standard package repositories
 
-(add-to-list 'package-archives
-             `("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 ;;; Also use Melpa for most packages
-(add-to-list 'package-archives
-             `("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 
 ;;; Fire up package.el
@@ -38,6 +28,7 @@
 
 (setq use-package-always-ensure t)
 
+
 (use-package try)
 
 (use-package benchmark-init)
