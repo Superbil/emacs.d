@@ -26,5 +26,10 @@
       (when (> l 1) (user-error "Too many workspace %s" workspace))
       (superbil/osx-open (car workspace)))))
 
+(use-package osx-trash
+  :if (eq system-type 'darwin)
+  :init
+  (setq delete-by-moving-to-trash t))
+
 
 (provide 'init-osx)
