@@ -1,4 +1,5 @@
-(use-package hippie-expand-slime)
+(use-package hippie-expand-slime
+  :after slime)
 
 
 ;;; Lisp buffers
