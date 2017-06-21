@@ -409,8 +409,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
   :if *is-a-mac*
   :bind (:map org-mode-map
               ("M-h" . nil)
-              ("C-c g" . org-mac-grab-link))
-  :after org)
+              ("C-c g" . org-mac-grab-link)))
 
 (use-package org-bullets)
 
