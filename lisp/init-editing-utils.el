@@ -106,7 +106,6 @@
 
 
 (use-package undo-tree
-  :ensure nil
   :config
   (global-undo-tree-mode)
   :diminish undo-tree-mode)
