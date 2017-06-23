@@ -223,7 +223,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
                         (org-agenda-todo-ignore-with-date t)))
             (agenda "" ((org-agenda-ndays 7)
                         (org-agenda-skip-function
-                         '(org-agenda-skip-entry-if 'todo '("WAITING" "HOLD" "CANCELLED")))))
+                         '(org-agenda-skip-entry-if 'todo '("WAITING" "HOLD" "CANCELLED" "DONE")))))
             (stuck ""
                    ((org-agenda-overriding-header "Stuck Projects")
                     (org-agenda-tags-todo-honor-ignore-options t)
