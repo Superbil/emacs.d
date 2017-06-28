@@ -10,7 +10,7 @@
 (use-package isearch
   :bind (:map isearch-mode-map
               ;; Activate occur easily inside isearch
-              ("C-o" . isearch-occur)
+              ("C-c C-o" . isearch-occur)
               ;; DEL during isearch should edit the search string, not jump back to the previous result
               ([remap isearch-delete-char] . isearch-del-char)
               ("\C-\M-w" . isearch-yank-symbol)
