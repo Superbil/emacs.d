@@ -21,11 +21,19 @@
   (defun sanityinc/font-lock-everything-in-sql-interactive-mode ()
     (unless (eq 'oracle sql-product)
       (sql-product-font-lock nil nil)))
+
+  (defun sanityinc/fix-postgres-prompt-regexp ()
+    "Work around https://debbugs.gnu.org/cgi/bugreport.cgi?bug=22596.
+Fix for the above hasn't been released as of Emacs 25.2."
+    (when (eq sql-product 'postgres)
+      (setq-local sql-prompt-regexp "^[[:alnum:]_]*=[#>] ")
+      (setq-local sql-prompt-cont-regexp "^[[:alnum:]_]*[-(][#>] ")))
   :config
   ;; sql-mode pretty much requires your psql to be uncustomised from stock settings
   (push "--no-psqlrc" sql-postgres-options)
 
   (add-hook 'sql-interactive-mode-hook 'sanityinc/font-lock-everything-in-sql-interactive-mode)
+  (add-hook 'sql-interactive-mode-hook 'sanityinc/fix-postgres-prompt-regexp)
 
   (use-package dash-at-point
     :preface
