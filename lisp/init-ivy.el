@@ -2,7 +2,8 @@
   :bind
   (:map ivy-minibuffer-map
         ("C-j" . ivy-immediate-done)
-        ("RET" . ivy-alt-done))
+        ("RET" . ivy-alt-done)
+        ("<up>" . ivy-previous-line-or-history))
   :init
   (setq-default ivy-use-virtual-buffers t
                 ivy-count-format ""
