@@ -99,6 +99,7 @@
 (require 'init-sql)
 (require 'init-eshell)
 (require 'init-zsh)
+(require 'init-go)
 
 (require 'init-javascript)
 
