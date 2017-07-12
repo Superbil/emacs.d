@@ -409,7 +409,13 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
   :if *is-a-mac*
   :bind (:map org-mode-map
               ("M-h" . nil)
-              ("C-c g" . org-mac-grab-link)))
+              ("C-c g" . org-mac-grab-link))
+  :init
+  (setq org-mac-grab-Evernote-app-p nil
+        org-mac-grab-Skim-app-p nil
+        org-mac-grab-Acrobat-app-p nil
+        org-mac-grab-Outlook-app-p nil
+        org-mac-grab-devonthink-app-p nil))
 
 (use-package org-bullets)
 
