@@ -13,8 +13,8 @@
               ("M-]" . next-error)
               ("M-[" . previous-error))
   :init
-  ;; Use 'go get -u golang.org/x/tools/cmd/goimports' to install
-  (setq gofmt-command "goimports")
+  (when (locate-file "goimports" exec-path)
+    (setq gofmt-command "goimports"))
   :config
   (add-hook 'before-save-hook 'gofmt-before-save))
 
@@ -25,6 +25,7 @@
   :after go-mode)
 
 (use-package go-guru
+  :if (locate-file "guru" exec-path)
   :after go-mode
   :config
   (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
