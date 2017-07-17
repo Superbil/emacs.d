@@ -24,5 +24,10 @@
 (use-package go-autocomplete
   :after go-mode)
 
+(use-package go-guru
+  :after go-mode
+  :config
+  (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
+
 
 (provide 'init-go)
