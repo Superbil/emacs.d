@@ -4,7 +4,7 @@
   :init
   (setq exec-path-from-shell-check-startup-files nil)
   :config
-  (dolist (var '("SSH_AUTH_SOCK" "LANG" "LC_CTYPE" "GEM_PATH"))
+  (dolist (var '("SSH_AUTH_SOCK" "LANG" "LC_CTYPE" "GEM_PATH" "GOPATH"))
     (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
