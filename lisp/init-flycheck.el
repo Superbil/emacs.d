@@ -1,10 +1,4 @@
 (use-package flycheck
-  :config
-  (add-hook 'after-init-hook 'global-flycheck-mode)
-  (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list))
-
-(use-package org-lint
-  :after flycheck
   :preface
   (defun flycheck-org-lint-start (checker callback)
     (funcall
@@ -18,6 +12,9 @@
            'warning (cadr err) :checker checker))
         (org-lint-link-to-local-file (org-element-parse-buffer))))))
   :config
+  (add-hook 'after-init-hook 'global-flycheck-mode)
+  (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
+
   (flycheck-define-generic-checker 'org-lint
     "Syntax checker for org-lint."
     :start 'flycheck-org-lint-start
