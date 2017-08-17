@@ -3,8 +3,7 @@
               ("P" . projectile-switch-open-vc))
   :after (text-mode prog-mode)
   :init
-  (setq projectile-enable-caching t
-        projectile-verbose nil
+  (setq projectile-verbose nil
         projectile-completion-system 'ivy)
   :preface
   (defun projectile-switch-open-vc (&optional arg)
