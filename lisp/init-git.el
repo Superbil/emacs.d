@@ -79,13 +79,14 @@
 
 ;;; git-flow
 (use-package magit-gitflow
-  :commands magit-status
   ;; redefine key C-f to C-c C-f
   :bind (:map magit-gitflow-mode-map
               ("C-f" . nil)
               ("C-c C-f" . magit-gitflow-popup))
   :config
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+;;; Workaround for magit-gitflow won't auto load
+(add-hook 'after-init-hook (lambda () (require 'magit-gitflow)))
 
 
 (provide 'init-git)
