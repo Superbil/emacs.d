@@ -15,6 +15,7 @@
   (add-hook 'after-init-hook 'global-flycheck-mode)
   (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
 
+  (require 'org-lint)
   (flycheck-define-generic-checker 'org-lint
     "Syntax checker for org-lint."
     :start 'flycheck-org-lint-start
