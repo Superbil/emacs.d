@@ -372,15 +372,6 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
   (require 'calfw-org))
 
 
-;; Org promodoro
-
-(use-package org-pomodoro
-  :after org-agenda
-  :init
-  (setq org-pomodoro-keep-killed-pomodoro-time t)
-  :bind (:map org-agenda-mode-map ("P" . org-pomodoro)))
-
-
 ;;; Org-mac-iCal
 (use-package org-mac-iCal
   :if *is-a-mac*)
