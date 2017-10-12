@@ -42,6 +42,9 @@
   (fullframe list-packages quit-window))
 
 
+(use-package benchmark-init)
+
+
 (use-package cl-lib
   :functions (sanityinc/set-tabulated-list-column-width
               sanityinc/maybe-widen-package-menu-columns)
