@@ -1,6 +1,8 @@
 (use-package browse-at-remote)
 (use-package yagist
   :commands yagist-list
+  :init
+  (setq yagist-encrypt-risky-config t)
   :config
   (add-hook 'yagist-list-hook 'sanityinc/no-trailing-whitespace))
 
