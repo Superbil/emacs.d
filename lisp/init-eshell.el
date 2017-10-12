@@ -54,8 +54,24 @@
 
   (use-package esh-mode
     :ensure nil
+    :defer t
+    :preface
+    (defun eshell/cds ()
+      (eshell/cd (or (locate-dominating-file default-directory "src")
+                     (locate-dominating-file default-directory ".git"))))
+
+    (defun eshell/clear ()
+      (interactive)
+      (let ((inhibit-read-only t))
+        (delete-region (point-min) (point-max)))
+      (eshell-send-input))
+
     :config
-    (add-to-list 'eshell-output-filter-functions 'colorfy-eshell-prompt)))
+    (add-to-list 'eshell-output-filter-functions 'colorfy-eshell-prompt)
+    (add-hook 'eshell-mode-hook
+              #'(lambda ()
+                  (bind-key "C-l" 'eshell/clear eshell-mode-map))))
+  )
 
 
 (provide 'init-eshell)
