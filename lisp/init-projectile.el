@@ -33,7 +33,6 @@
 
   (add-hook 'after-init-hook
             (lambda ()
-              (projectile-mode)
               (projectile-cleanup-known-projects))))
 
 
