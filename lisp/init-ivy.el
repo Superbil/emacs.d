@@ -12,7 +12,7 @@
                 '((man . "^")
                   (woman . "^")))
   :config
-  (add-hook 'after-init-hook (lambda () (ivy-mode t)))
+  (add-hook 'after-init-hook (lambda () (ivy-mode 1)))
   :diminish ivy-mode)
 
 (use-package ivy-historian
