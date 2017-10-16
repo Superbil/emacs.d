@@ -398,6 +398,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 
 (use-package org-mac-link
   :if *is-a-mac*
+  :ensure nil
   :bind (:map org-mode-map
               ("M-h" . nil)
               ("C-c g" . org-mac-grab-link))
