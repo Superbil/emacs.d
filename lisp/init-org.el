@@ -324,13 +324,6 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
   (setq org-clock-display-default-range 'untilnow)
 
   :preface
-  ;; Show the clocked-in task - if any - in the header line
-  (defun sanityinc/show-org-clock-in-header-line ()
-    (setq-default header-line-format '((" " org-mode-line-string " "))))
-
-  (defun sanityinc/hide-org-clock-from-header-line ()
-    (setq-default header-line-format nil))
-
   ;; Remove empty LOGBOOK drawers on clock out
   (defun sanityinc/remove-empty-drawer-on-clock-out ()
     (interactive)
@@ -341,8 +334,6 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
   :config
   (org-clock-persistence-insinuate)
 
-  (add-hook 'org-clock-in-hook 'sanityinc/show-org-clock-in-header-line)
-  (add-hook 'org-clock-out-hook 'sanityinc/hide-org-clock-from-header-line)
   (add-hook 'org-clock-cancel-hook 'sanityinc/hide-org-clock-from-header-line)
   (add-hook 'org-clock-out-hook 'sanityinc/remove-empty-drawer-on-clock-out 'append)
 
