@@ -5,6 +5,9 @@
   :init
   (setq projectile-verbose nil
         projectile-completion-system 'ivy)
+  (setq projectile-mode-line
+        '(:eval (format " Projectile[%s]"
+                        (projectile-project-name))))
   :preface
   (defun projectile-switch-open-vc (&optional arg)
     "Switch to a project we have currently opened.
@@ -33,6 +36,7 @@
 
   (add-hook 'after-init-hook
             (lambda ()
+              (projectile-mode)
               (projectile-cleanup-known-projects))))
 
 
