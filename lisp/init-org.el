@@ -270,6 +270,8 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
                                 (zin/org-agenda-skip-tag "@Home")
                                 (zin/org-agenda-skip-tag "@Computer")
                                 (zin/org-agenda-skip-tag "@Reading")
+                                (zin/org-agenda-skip-tag "@Reading_web")
+                                (zin/org-agenda-skip-tag "@Reading_book")
                                 (zin/org-agenda-skip-tag "@Watching")
                                 (zin/org-agenda-skip-tag "@Gaming"))))
                         (org-tags-match-list-sublevels t)
