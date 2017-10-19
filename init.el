@@ -50,6 +50,7 @@
 (require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
+(require 'init-modeline)
 (require 'init-dired)
 (require 'init-isearch)
 (require 'init-grep)
