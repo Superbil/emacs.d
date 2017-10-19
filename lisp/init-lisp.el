@@ -102,8 +102,8 @@
 ;; ----------------------------------------------------------------------------
 (use-package auto-compile
   :config
-  (auto-compile-on-save-mode 1)
-  (auto-compile-on-load-mode 1))
+  (add-hook 'after-init'hook 'auto-compile-on-save-mode)
+  (add-hook 'after-init'hook 'auto-compile-on-load-mode))
 
 ;; ----------------------------------------------------------------------------
 ;; Load .el if newer than corresponding .elc
@@ -196,7 +196,7 @@
     (add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
   (use-package eldoc-eval
     :config
-    (eldoc-in-minibuffer-mode 1)))
+    (add-hook 'after-init-hook 'eldoc-in-minibuffer-mode)))
 
 (use-package elisp-mode
   :ensure nil

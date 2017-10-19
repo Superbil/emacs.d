@@ -360,9 +360,7 @@ With arg N, insert N newlines."
   (setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "M-s" "C-h"))
   :diminish guide-key-mode
   :config
-  (add-hook 'after-init-hook
-            (lambda ()
-              (guide-key-mode 1))))
+  (add-hook 'after-init-hook 'guide-key-mode))
 
 
 (provide 'init-editing-utils)
