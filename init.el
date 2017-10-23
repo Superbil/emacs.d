@@ -33,7 +33,7 @@
 (require 'init-preload-local nil t)
 
 ;;----------------------------------------------------------------------------
-;; Setup scrtch welcome message
+;; Setup scratch welcome message
 ;;----------------------------------------------------------------------------
 (setq-default initial-scratch-message
               (concat ";; Happy hacking, " user-login-name " - Emacs ❤️ you!\n\n"))
