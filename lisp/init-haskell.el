@@ -12,7 +12,7 @@
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
   (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
-  (after-load 'haskell
+  (with-eval-after-load 'haskell
     (bind-key "M-N" 'haskell-goto-next-error interactive-haskell-mode-map)
     (bind-key "M-P" 'haskell-goto-prev-error interactive-haskell-mode-map)))
 
@@ -24,7 +24,7 @@
   :config
   (intro-global-mode)
   (add-hook 'haskell-mode-hook 'eldoc-mode)
-  (after-load 'flycheck
+  (with-eval-after-load 'flycheck
     (flycheck-add-next-checker 'intero
                                '(warning . haskell-hlint))))
 

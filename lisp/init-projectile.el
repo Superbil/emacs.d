@@ -30,7 +30,7 @@
 
   (fullframe projectile-switch-open-vc magit-mode-quit-window)
 
-  (after-load 'guide-key
+  (with-eval-after-load 'guide-key
     (dolist (keys `("C-c p" "C-c p 4" "C-c p s" "C-c p x"))
       (add-to-list 'guide-key/guide-key-sequence keys)))
 

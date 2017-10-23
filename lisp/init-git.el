@@ -25,8 +25,11 @@
   (when *is-a-mac*
     (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))
 
-  (after-load 'magit-section
-    (bind-key "C-M-<up>" 'magit-section-up magit-status-mode-map))
+  (use-package magit-section
+    :ensure nil
+    :bind
+    (:map magit-status-mode-map
+          ("C-M-<up>" . magit-section-up)))
 
   (bind-key "M-w" 'whole-line-or-region-kill-ring-save magit-mode-map)
 
