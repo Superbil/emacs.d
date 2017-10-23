@@ -20,7 +20,7 @@
                   minibuffer-setup-hook))
     (add-hook hook #'sanityinc/no-trailing-whitespace))
 
-  (global-whitespace-cleanup-mode t))
+  (add-hook 'after-init-hook 'global-whitespace-cleanup-mode))
 
 (use-package simple
   :bind ([remap just-one-space] . cycle-spacing)
