@@ -31,8 +31,6 @@
 
 (use-package try)
 
-(use-package benchmark-init)
-
 (require 'diminish)
 (require 'bind-key)
 
