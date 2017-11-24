@@ -2,7 +2,8 @@
 (use-package yagist
   :commands yagist-list
   :init
-  (setq yagist-encrypt-risky-config t)
+  (setq yagist-encrypt-risky-config t
+        yagist-git-config-with-includes t)
   :config
   (add-hook 'yagist-list-hook 'sanityinc/no-trailing-whitespace))
 
