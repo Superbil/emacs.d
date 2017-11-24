@@ -1,10 +1,9 @@
 (use-package telephone-line
+  ;; telephone-line-faces
   :config
-  (telephone-line-mode t))
-(use-package all-the-icons
-  :after telephone-line
-  :config
-  )
+  (telephone-line-mode))
+
+(use-package all-the-icons)
 
 (use-package all-the-icons-dired
   :config
