@@ -37,8 +37,7 @@
 ;; (see https://github.com/company-mode/company-mode/issues/416)
 (use-package page-break-lines
   :after company
-  :defines
-  (defvar sanityinc/page-break-lines-on-p nil)
+  :defines sanityinc/page-break-lines-on-p
   :functions (sanityinc/page-break-lines-disable
               sanityinc/page-break-lines-maybe-reenable)
   :preface
@@ -51,6 +50,8 @@
       (page-break-lines-mode 1)))
 
   :config
+  (defvar sanityinc/page-break-lines-on-p nil)
+
   (make-variable-buffer-local 'sanityinc/page-break-lines-on-p)
 
   (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
