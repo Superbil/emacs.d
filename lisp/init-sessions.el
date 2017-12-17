@@ -59,9 +59,9 @@
 ;;----------------------------------------------------------------------------
 ;; Auto cleanup older buffers
 ;;----------------------------------------------------------------------------
-(use-package midnight
-  :init
-  (setq midnight-delay 0))
+;; (use-package midnight
+;;   :init
+;;   (setq midnight-delay 0))
 
 
 (provide 'init-sessions)
