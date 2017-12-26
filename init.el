@@ -59,7 +59,7 @@
 (require 'init-flycheck)
 
 (require 'init-recentf)
-(require 'init-smex)
+(require 'init-mx)
 (require 'init-ivy)
 (require 'init-hippie-expand)
 (require 'init-company)

@@ -235,15 +235,15 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
             (tags-todo "MEETING"
                        ((org-agenda-overriding-header "Meeting")
                         (org-tags-match-list-sublevels nil)))
-            (tags-todo "@Errands/-DONE-NEXT-HOLD"
+            (tags-todo "@Errands/-DONE-NEXT-HOLD-DELEGATED-WAITING"
                        ((org-agenda-overriding-header "List TODO with @Errands")))
-            (tags-todo "@Home/-DONE-NEXT-HOLD"
+            (tags-todo "@Home/-DONE-NEXT-HOLD-DELEGATED-WAITING"
                        ((org-agenda-overriding-header "List TODO with @Home")))
-            (tags-todo "@Computer/-DONE-NEXT-HOLD"
+            (tags-todo "@Computer/-DONE-NEXT-HOLD-DELEGATED-WAITING"
                        ((org-agenda-overriding-header "List TODO with @Computer")))
-            (tags-todo "{@Reading.*}/-DONE-NEXT-HOLD"
+            (tags-todo "{@Reading.*}/-DONE-NEXT-HOLD-DELEGATED-WAITING"
                        ((org-agenda-overriding-header "List TODO with @Reading")))
-            (tags-todo "@Watching/-DONE-NEXT-HOLD"
+            (tags-todo "@Watching/-DONE-NEXT-HOLD-DELEGATED-WAITING"
                        ((org-agenda-overriding-header "List TODO with @Watching")))
             (tags-todo "/HOLD"
                        ((org-agenda-overriding-header "On Hold")
