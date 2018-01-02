@@ -7,7 +7,11 @@
   ;; http://sakito.jp/emacs/emacsshell.html
   (setq system-uses-terminfo nil
         eshell-ls-exclude-regexp "^\\(:2e\\|__MACOSX\\)"
-        eshell-visual-subcommands '(("git" "log" "diff" "show")))
+        eshell-visual-subcommands '(("git" "log" "diff" "show"))
+        eshell-hist-ignoredups t
+        eshell-cmpl-cycle-completions nil
+        eshell-cmpl-ignore-case t
+        eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'")
   :preface
 
   :config
