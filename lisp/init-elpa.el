@@ -31,7 +31,7 @@
 
 (use-package try)
 
-(require 'diminish)
+(use-package diminish)
 (require 'bind-key)
 
 
