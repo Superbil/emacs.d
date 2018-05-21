@@ -6,7 +6,7 @@
   (setq projectile-verbose nil
         projectile-completion-system 'ivy)
   (setq projectile-mode-line
-        '(:eval (format " Projectile[%s]"
+        '(:eval (format " 🎛️[%s]"
                         (projectile-project-name))))
   :preface
   (defun projectile-switch-open-vc (&optional arg)
