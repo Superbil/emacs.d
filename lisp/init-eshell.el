@@ -41,5 +41,13 @@
                   (bind-key "C-l" 'eshell/clear eshell-mode-map))))
   )
 
+(use-package helm-eshell
+  :after eshell
+  :ensure nil
+  :config
+  (add-hook 'eshell-mode-hook
+            #'(lambda ()
+                (define-key eshell-mode-map (kbd "M-l")  'helm-eshell-history))))
+
 
 (provide 'init-eshell)
