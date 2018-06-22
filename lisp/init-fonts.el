@@ -18,10 +18,12 @@ This is helpful for writeroom-mode, in particular."
          ("C-M--" . cnfonts-decrease-fontsize))
   :init
   (setq cnfonts-use-face-font-rescale t)
-  (setq cnfonts-personal-fontnames
-        '(("Source Code Pro" "Monaco" "Consolas")
-          ("Source Han Sans TC" "Source Han Sans")
-          ("HanaMinB" "SimSun-ExtB" "MingLiU-ExtB" "PMingLiU-ExtB" "MingLiU_HKSCS-ExtB")))
+  (let ((fonts
+         '(("Source Code Pro" "Monaco" "Consolas")
+           ("Source Han Sans TC" "Source Han Sans")
+           ("HanaMinB" "SimSun-ExtB" "MingLiU-ExtB" "PMingLiU-ExtB" "MingLiU_HKSCS-ExtB"))))
+    (setq cnfonts-personal-fontnames fonts)
+    (setq cnfonts--custom-set-fontnames fonts))
   (setq cnfonts--custom-set-fontsizes
         '((9    10.5 10.5)
           (10   12.0 12.0)
