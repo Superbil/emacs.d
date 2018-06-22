@@ -1,4 +1,6 @@
 (use-package alert
+  :preface
+  (if *is-a-mac* (setq alert-default-style 'osx-notifier))
   :config
   (defun sanityinc/alert-after-compilation-finish (buf result)
     "Use `alert' to report compilation RESULT if BUF is hidden."
