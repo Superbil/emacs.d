@@ -59,7 +59,6 @@
 (require 'init-flycheck)
 
 (require 'init-recentf)
-(require 'init-mx)
 (require 'init-helm)
 (require 'init-hippie-expand)
 (require 'init-company)
