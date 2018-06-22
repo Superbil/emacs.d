@@ -365,9 +365,6 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
   (require 'calfw-org))
 
 
-;;; Org-mac-iCal
-(use-package org-mac-iCal
-  :if *is-a-mac*)
 ;; ;; Show iCal calendars in the org agenda
 ;; (when (and *is-a-mac* (require 'org-mac-iCal nil t))
 ;;   (setq org-agenda-include-diary t
