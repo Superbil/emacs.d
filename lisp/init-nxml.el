@@ -34,21 +34,5 @@ between them.  It then indents the markup by using nxml's indentation rules."
     (nxml-mode)
     (indent-region begin end)))
 
-;;----------------------------------------------------------------------------
-;; Integration with tidy for html + xml
-;;----------------------------------------------------------------------------
-(use-package tidy
-  :preface
-  (defun sanityinc/tidy-buffer-xml (beg end)
-    "Run \"tidy -xml\" on the region from BEG to END, or whole buffer."
-    (interactive "r")
-    (unless (use-region-p)
-      (setq beg (point-min)
-            end (point-max)))
-    (shell-command-on-region beg end "tidy -xml -q -i" (current-buffer) t "*tidy-errors*" t))
-  :config
-  (add-hook 'nxml-mode-hook (lambda () (tidy-build-menu nxml-mode-map)))
-  (add-hook 'html-mode-hook (lambda () (tidy-build-menu html-mode-map))))
-
 
 (provide 'init-nxml)
