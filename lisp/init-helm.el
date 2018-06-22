@@ -9,6 +9,7 @@
   (setq helm-buffers-fuzzy-matching t
         helm-recentf-fuzzy-match t)
   :config
+  (setq projectile-completion-system 'helm)
   (helm-mode 1))
 
 (use-package helm-projectile
