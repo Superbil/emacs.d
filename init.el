@@ -60,7 +60,7 @@
 
 (require 'init-recentf)
 (require 'init-mx)
-(require 'init-ivy)
+;; (require 'init-ivy)
 (require 'init-hippie-expand)
 (require 'init-company)
 (require 'init-windows)

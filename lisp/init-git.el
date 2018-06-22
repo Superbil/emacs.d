@@ -20,7 +20,6 @@
   :config
   (add-hook 'magit-popup-mode-hook 'sanityinc/no-trailing-whitespace)
   (add-hook 'after-save-hook 'magit-after-save-refresh-status)
-  (setq magit-completing-read-function 'ivy-completing-read)
 
   (when *is-a-mac*
     (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))

@@ -3,8 +3,6 @@
               ("P" . projectile-switch-open-vc))
   :after (text-mode prog-mode)
   :init
-  (setq projectile-verbose nil
-        projectile-completion-system 'ivy)
   (setq projectile-mode-line
         '(:eval (format " 🎛️[%s]"
                         (projectile-project-name))))
