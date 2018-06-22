@@ -31,5 +31,29 @@
   (setq helm-github-stars-username "superbil")
   (setq helm-github-stars-cache-file (expand-file-name "~/Library/Caches/hgs-cache")))
 
+(use-package helm-gtags
+  :if (executable-find "global")
+  :disabled (fset 'helm-gtags-mode nil)
+  :defer t
+  :bind (:map helm-gtags-mode-map
+              ("M-." . helm-gtags-find-tag)
+              ("M-," . helm-gtags-pop-stack)
+              ("C-t r" . helm-gtags-find-rtag)
+              ("C-t s" . helm-gtags-find-symbol)
+              ("C-t p" . helm-gtags-parse-file))
+  :init
+  (add-hook 'c++-mode-hook 'helm-gtags-mode)
+  (add-hook 'c-mode-hook 'helm-gtags-mode)
+  (add-hook 'objc-mode-hook 'helm-gtags-mode)
+  ;; (add-hook 'python-mode-hook 'helm-gtags-mode)
+  :diminish (helm-gtags-mode . ("tags"))
+  :config
+  (global-unset-key "\C-t")
+  (custom-set-variables
+   '(helm-gtags-path-style 'relative)
+   '(helm-gtags-ignore-case t)
+   '(helm-gtags-auto-update t)
+   '(helm-gtags-prefix-key "C-t")))
+
 
 (provide 'init-helm)
