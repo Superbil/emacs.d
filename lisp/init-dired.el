@@ -60,8 +60,6 @@
 ;;   (add-hook 'dired-mode-hook
 ;;             (lambda () (guide-key/add-local-guide-key-sequence "%"))))
 
-(use-package dired-sort
-  :after dired)
 
 (use-package diff-hl
   :after dired
