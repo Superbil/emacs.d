@@ -1,5 +1,3 @@
-(use-package csv-nav
-  :after csv-mode)
 
 (use-package csv-mode
   :mode "\\.[Cc][Ss][Vv]\\'"
