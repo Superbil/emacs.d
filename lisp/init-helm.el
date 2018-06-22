@@ -5,10 +5,11 @@
          ("C-x f" . helm-recentf)
          ("M-Y" . helm-show-kill-ring)
          ("C-x b" . helm-buffers-list))
+  :preface
+  (setq helm-buffers-fuzzy-matching t
+        helm-recentf-fuzzy-match t)
   :config
-  (progn
-    (setq helm-buffers-fuzzy-matching t)
-    (helm-mode 1)))
+  (helm-mode 1))
 
 (use-package helm-projectile
   :after (projectile-mode)
