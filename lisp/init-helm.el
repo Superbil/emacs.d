@@ -23,5 +23,12 @@
   :init (setq helm-ag-insert-at-point 'symbol
               helm-ag-command-option "--path-to-ignore ~/.agignore"))
 
+(use-package helm-ls-git)
+
+(use-package helm-github-stars
+  :init
+  (setq helm-github-stars-username "superbil")
+  (setq helm-github-stars-cache-file (expand-file-name "~/Library/Caches/hgs-cache")))
+
 
 (provide 'init-helm)
