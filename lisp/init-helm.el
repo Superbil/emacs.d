@@ -56,5 +56,6 @@
    '(helm-gtags-auto-update t)
    '(helm-gtags-prefix-key "C-t")))
 
+(use-package helm-gitignore)
 
 (provide 'init-helm)
