@@ -51,7 +51,7 @@
 ;;----------------------------------------------------------------------------
 ;; Check filename before call setq
 ;;----------------------------------------------------------------------------
-(defmacro setq-when-file-exists (sym filename)
+(defmacro setq-when-file-existed (sym filename)
   "Set SYM when FILENAME is existed."
   (declare (indent 1) (debug t))
   `(when (file-exists-p ,filename)
