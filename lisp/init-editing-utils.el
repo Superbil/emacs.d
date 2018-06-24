@@ -32,7 +32,8 @@
   :ensure nil
   :init
   (setq global-auto-revert-non-file-buffers t
-        auto-revert-verbose nil)
+        auto-revert-verbose nil
+        auto-revert-mode-text " ♲")
   :config
   (global-auto-revert-mode))
 
