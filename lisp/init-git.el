@@ -6,6 +6,8 @@
 (use-package gitconfig-mode
   :mode ".gitconfig-local\\'")
 (use-package git-timemachine)
+(use-package git-attr)
+(use-package git-link)
 
 (use-package magit
   :bind
