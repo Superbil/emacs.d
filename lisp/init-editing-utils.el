@@ -267,7 +267,7 @@
              (when ,flagvar
                (,mode-name 1)))))))
 
-  :diminish whole-line-or-region-mode
+  :diminish whole-line-or-region-local-mode
   :config
   (whole-line-or-region-mode t)
   (make-variable-buffer-local 'whole-line-or-region-mode)

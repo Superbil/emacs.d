@@ -1,4 +1,5 @@
-(use-package async)
+(use-package async
+  :diminish)
 
 (use-package dired-async
   :ensure nil

@@ -5,6 +5,7 @@
          ("C-x f" . helm-recentf)
          ("M-Y" . helm-show-kill-ring)
          ("C-x b" . helm-buffers-list))
+  :diminish
   :preface
   (setq helm-buffers-fuzzy-matching t
         helm-recentf-fuzzy-match t)
