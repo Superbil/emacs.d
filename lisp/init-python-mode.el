@@ -34,11 +34,11 @@
 ;;----------------------------------------------------------------------------
 (use-package pyenv-mode
   :after python-mode
-  :bind (:map pyenv-mode-map
-              ;; Remove default keybind
-              ("C-c C-s" . nil)
-              ("C-M-s" . nil))
-  :config (pyenv-mode))
+  :config
+  (pyenv-mode)
+  ;; Remove default keybind
+  (bind-key "C-c C-s" nil pyenv-mode-map)
+  (bind-key "C-M-s" nil pyenv-mode-map))
 
 ;;----------------------------------------------------------------------------
 ;; pdbtrack constants
