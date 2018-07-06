@@ -19,7 +19,8 @@
       org-html-validation-link nil
       org-log-done t
       org-support-shift-select t
-      org-tags-column 80)
+      org-tags-column 80
+      org-time-stamp-custom-formats `("<%y/%m/%d>" . "<%m/%d/%y %H:%M>"))
 
 
 ;;; org habit
