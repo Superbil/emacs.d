@@ -30,15 +30,15 @@
   (add-hook 'python-mode-hook 'flymake-python-pyflakes-load))
 
 ;;----------------------------------------------------------------------------
-;; Pyenv setup
+;; pipenv setup
 ;;----------------------------------------------------------------------------
-(use-package pyenv-mode
+(use-package pipenv
   :after python-mode
-  :bind (:map pyenv-mode-map
-              ;; Remove default keybind
-              ("C-c C-s" . nil)
-              ("C-M-s" . nil))
-  :config (pyenv-mode))
+  :hook (python-mode . pipenv-mode)
+  :init
+  (setq
+   pipenv-projectile-after-switch-function
+   #'pipenv-projectile-after-switch-extended))
 
 ;;----------------------------------------------------------------------------
 ;; pdbtrack constants
