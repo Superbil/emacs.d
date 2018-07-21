@@ -5,7 +5,7 @@
 
 (defcustom dired-open-external-program
   "open"
-  "Name for dired to use"
+  "Name for dired to use."
   :type 'string)
 
 (use-package dired
