@@ -33,11 +33,7 @@
 
 
 
-(use-package rvm
-  :if (executable-find "rvm")
-  :after ruby
-  :config
-  (rvm-use-default))
-
+(use-package rbenv
+  :if (executable-find "rbenv"))
 
 (provide 'init-ruby-mode)
