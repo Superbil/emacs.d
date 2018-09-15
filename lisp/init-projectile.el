@@ -24,6 +24,7 @@
     (projectile-with-default-dir (projectile-project-root)
       (open-xcode-workspace (projectile-project-root))))
   :config
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '(".DS_Store" ".gitignore")))
 
   (fullframe projectile-switch-open-vc magit-mode-quit-window)
