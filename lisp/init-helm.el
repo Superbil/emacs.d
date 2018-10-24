@@ -59,4 +59,6 @@
 
 (use-package helm-gitignore)
 
+(use-package helm-tramp)
+
 (provide 'init-helm)
