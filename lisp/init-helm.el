@@ -9,8 +9,25 @@
   :preface
   (setq helm-buffers-fuzzy-matching t
         helm-recentf-fuzzy-match t)
+
+  (defun sort-dired-buffers (buffers)
+    "Sort BUFFERS by moving all Dired buffers to the end."
+    (let (dired-buffers other-buffers)
+      (dolist (buf buffers)
+        (if (with-current-buffer buf
+              (eq major-mode 'dired-mode))
+            (push buf dired-buffers)
+          (push buf other-buffers)))
+      (nreverse (append dired-buffers other-buffers))))
+
+  (defun helm-buffers-sort-dired-buffers (orig-fun &rest args)
+    (sort-dired-buffers (apply orig-fun args)))
+
+  :functions (sort-dired-buffers helm-buffers-sort-dired-buffers)
+
   :config
   (setq projectile-completion-system 'helm)
+  (advice-add 'helm-buffers-sort-transformer :around #'helm-buffers-sort-dired-buffers)
   (helm-mode 1))
 
 (use-package helm-projectile
