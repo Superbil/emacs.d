@@ -71,7 +71,8 @@
   :ensure nil
   :config
   (setq dired-guess-shell-alist-user
-        '(("\\.xcodeproj$" "open"))))
+        '(("\\.xcodeproj$" "open")
+          ("\\.xcworkspace" "open"))))
 
 
 (provide 'init-dired)
