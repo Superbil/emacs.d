@@ -38,6 +38,10 @@
 
 (use-package magit-lfs)
 
+;; let magit support issues system, github or gitlab
+(use-package forge
+  :after magit)
+
 (use-package git-commit
   :config
   (add-hook 'git-commit-mode-hook 'goto-address-mode))
