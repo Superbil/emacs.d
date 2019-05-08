@@ -159,6 +159,7 @@
                       ("@Home" . ?h)
                       ("@Computer" . ?c)
                       ("@Errands" . ?e)
+                      ("@Contact" . ?o)
                       (:endgroup)
 
                       ("@Reading" . ?r)
