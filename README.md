@@ -4,7 +4,7 @@
 
 I fork from [prucell/emacs.d](https://github.com/purcell/emacs.d)
 
-I change some custom function and keybind for myself. If you want contribute,
+I change a lot of custom function and keybind for myself. If you want contribute,
 plase create an [pull-request](https://github.com/Superbil/emacs.d/pulls).
 
 ## Install
