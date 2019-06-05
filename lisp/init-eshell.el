@@ -27,18 +27,7 @@
     :preface
     (defun eshell/cds ()
       (eshell/cd (or (locate-dominating-file default-directory "src")
-                     (locate-dominating-file default-directory ".git"))))
-
-    (defun eshell/clear ()
-      (interactive)
-      (let ((inhibit-read-only t))
-        (delete-region (point-min) (point-max)))
-      (eshell-send-input))
-
-    :config
-    (add-hook 'eshell-mode-hook
-              #'(lambda ()
-                  (bind-key "C-l" 'eshell/clear eshell-mode-map))))
+                     (locate-dominating-file default-directory ".git")))))
   )
 
 (use-package helm-eshell
