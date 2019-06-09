@@ -341,14 +341,15 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
   (add-hook 'org-clock-cancel-hook 'sanityinc/hide-org-clock-from-header-line)
   (add-hook 'org-clock-out-hook 'sanityinc/remove-empty-drawer-on-clock-out 'append)
 
-  ;;; Install org-clock-statusbar.app from https://github.com/koddo/org-clock-statusbar-app
-  (when (and *is-a-mac* (file-directory-p "~/Applications/org-clock-statusbar.app"))
+  (when *is-a-mac*
     (add-hook 'org-clock-in-hook
-              (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e"
-                                  (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
+              (lambda ()
+                (call-process "/usr/bin/open" nil 0 nil (concat "hammerspoon://orgClockIn?title=" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task)))
+                ))
     (add-hook 'org-clock-out-hook
-              (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e"
-                                  "tell application \"org-clock-statusbar\" to clock out"))))
+              (lambda ()
+                (call-process "/usr/bin/open" nil 0 nil (concat "hammerspoon://orgClockOut?title=" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task)))
+                )))
 
   :bind
   (:map org-clock-mode-line-map
