@@ -23,12 +23,15 @@
           (let ((vec (tramp-dissect-file-name tempfile)))
             (tramp-make-tramp-file-name
              "sudo"
-             nil
+             ""
              (tramp-file-name-domain vec)
              (tramp-file-name-host vec)
              (tramp-file-name-port vec)
-             (tramp-file-name-localname vec)))
-        (concat "/sudo:localhost:" tempfile))))
+             (tramp-file-name-localname vec)
+             (format "ssh:%s@%s|"
+                     (tramp-file-name-user vec)
+                     (tramp-file-name-host vec))))
+        (concat "/sudo:root@localhost:" tempfile))))
 
   (defun sudo-edit-current-file ()
     (interactive)
