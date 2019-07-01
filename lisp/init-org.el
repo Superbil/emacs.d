@@ -6,7 +6,9 @@
          ("C-M-<up>" . org-up-element)))
 
 ;; Various preferences
-(setq org-catch-invisible-edits 'show
+(setq org-catch-invisible-edits 'show-and-error
+      org-cycle-separator-lines 0
+      org-list-demote-modify-bullet '(("+" . "-") ("-" . "+") ("*" . "+"))
       org-completion-use-ido t
       org-edit-timestamp-down-means-later t
       org-archive-mark-done nil
