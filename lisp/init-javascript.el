@@ -163,4 +163,12 @@
   (setq-mode-local web-mode emmet-expand-jsx-className? nil))
 
 
+;;; Use Prettier to format code
+(use-package prettier-js
+  :hook ((js2-mode . prettier-js-mode))
+  :config
+  (setq prettier-js-args '("--trailing-comma" "all"
+                           "--bracket-spacing" "false")))
+
+
 (provide 'init-javascript)
