@@ -201,7 +201,8 @@
 
 (use-package elisp-mode
   :ensure nil
-  :mode (("\\.emacs-project\\'" . emacs-lisp-mode)
+  :mode (("\\.el\\'" . emacs-lisp-mode)
+         ("\\.emacs-project\\'" . emacs-lisp-mode)
          ("archive-contents\\'" . emacs-lisp-mode)))
 
 (use-package cl-lib-highlight
