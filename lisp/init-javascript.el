@@ -84,6 +84,17 @@
   :mode "\\.ls\\'")
 
 
+;;; TypeScript
+
+(use-package typescript-mode)
+
+(use-package tide
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
+
+
 ;; ---------------------------------------------------------------------------
 ;; Run and interact with an inferior JS via js-comint.el
 ;; ---------------------------------------------------------------------------
@@ -117,6 +128,38 @@
   :config
   (add-hook 'skewer-mode-hook
             (lambda () (inferior-js-keys-mode -1))))
+
+
+;; ---------------------------------------------------------------------------
+;; React.js jsx
+;; ---------------------------------------------------------------------------
+(use-package rjsx-mode
+  :after (flycheck tide-mode)
+  :config
+  (add-hook 'rjsx-mode-hook
+            (lambda ()
+              (flycheck-add-mode 'javascript-eslint 'rjsx-mode)
+              (flycheck-select-checker 'javascript-eslint))))
+
+(use-package tide
+  :after (flycheck company eldoc rjsx-mode)
+  :hook ((rjsx-mode . tide-setup))
+  :config
+  (tide-hl-identifier-mode +1)
+  (flycheck-mode +1)
+  (eldoc-mode +1)
+  (company-mode +1))
+
+(use-package emmet-mode
+  :hook (web-mode css-mode scss-mode sgml-mode rjsx-mode)
+  :config
+  (add-hook 'emmet-mode-hook
+            (lambda () (setq emmet-indent-after-insert t))))
+
+(use-package mode-local
+  :config
+  (setq-mode-local rjsx-mode emmet-expand-jsx-className? t)
+  (setq-mode-local web-mode emmet-expand-jsx-className? nil))
 
 
 (provide 'init-javascript)
