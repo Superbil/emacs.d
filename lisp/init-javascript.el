@@ -86,7 +86,8 @@
 
 ;;; TypeScript
 
-(use-package typescript-mode)
+(use-package typescript-mode
+  :mode "\\.ts\\'")
 
 (use-package tide
   :after (typescript-mode company flycheck)
