@@ -132,10 +132,11 @@
 
 
 ;; ---------------------------------------------------------------------------
-;; React.js jsx
+;; React.js
 ;; ---------------------------------------------------------------------------
 (use-package rjsx-mode
-  :after (flycheck tide-mode)
+  :after (flycheck)
+  :mode ("\\.jsx\\'")
   :config
   (add-hook 'rjsx-mode-hook
             (lambda ()
