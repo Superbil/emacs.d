@@ -135,17 +135,27 @@
 ;; React.js
 ;; ---------------------------------------------------------------------------
 (use-package rjsx-mode
-  :after (flycheck)
+  :after (flycheck tide)
   :mode ("\\.jsx\\'")
-  :config
-  (add-hook 'rjsx-mode-hook
-            (lambda ()
-              (flycheck-add-mode 'javascript-eslint 'rjsx-mode)
-              (flycheck-select-checker 'javascript-eslint))))
+  :preface
+  (defun jsx-tide-4-rjsx-mode ()
+    (flycheck-add-mode 'jsx-tide 'rjsx-mode)
+    (flycheck-select-checker 'jsx-tide))
+  :hook ((rjsx-mode . jsx-tide-4-rjsx-mode)))
+
+;;; For typescript
+(use-package rjsx-mode
+  :after (flycheck tide)
+  :mode ("\\.tsx\\'")
+  :preface
+  (defun tsx-tide-4-rjsx-mode ()
+    (flycheck-add-mode 'tsx-tide 'rjsx-mode)
+    (flycheck-select-checker 'tsx-tide))
+  :hook ((rjsx-mode . tsx-tide-4-rjsx-mode)))
 
 (use-package tide
-  :after (flycheck company eldoc rjsx-mode)
-  :hook ((rjsx-mode . tide-setup))
+  :after (eldoc company)
+  :hook (((rjsx-mode js2-mode) . tide-setup))
   :config
   (tide-hl-identifier-mode +1)
   (flycheck-mode +1)
