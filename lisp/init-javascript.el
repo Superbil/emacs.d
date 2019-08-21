@@ -135,26 +135,29 @@
 ;; ---------------------------------------------------------------------------
 (use-package rjsx-mode
   :after (flycheck tide)
+  :hook
+  ((rjsx-mode . (lambda ()
+                  (flycheck-add-mode 'jsx-tide 'rjsx-mode)
+                  (flycheck-add-mode 'tsx-tide 'rjsx-mode)))
+   (rjsx-mode . tide-setup)))
+
+(use-package rjsx-mode
+  :after (tide)
   :mode ("\\.jsx\\'")
-  :preface
-  (defun jsx-tide-4-rjsx-mode ()
-    (flycheck-add-mode 'jsx-tide 'rjsx-mode)
-    (flycheck-select-checker 'jsx-tide))
-  :hook ((rjsx-mode . jsx-tide-4-rjsx-mode)))
+  :config
+  (flycheck-select-checker 'tsx-tide))
 
 ;;; For typescript
 (use-package rjsx-mode
-  :after (flycheck tide)
+  :after (tide)
   :mode ("\\.tsx\\'")
-  :preface
-  (defun tsx-tide-4-rjsx-mode ()
-    (flycheck-add-mode 'tsx-tide 'rjsx-mode)
-    (flycheck-select-checker 'tsx-tide))
-  :hook ((rjsx-mode . tsx-tide-4-rjsx-mode)))
+  :config
+  (flycheck-select-checker 'tsx-tide))
 
 (use-package tide
   :after (eldoc company)
   :hook (((rjsx-mode js2-mode) . tide-setup))
+  :commands (tide-setup)
   :config
   (tide-hl-identifier-mode +1)
   (flycheck-mode +1)
