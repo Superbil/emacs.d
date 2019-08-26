@@ -139,7 +139,8 @@
   ((rjsx-mode . (lambda ()
                   (flycheck-add-mode 'jsx-tide 'rjsx-mode)
                   (flycheck-add-mode 'tsx-tide 'rjsx-mode)))
-   (rjsx-mode . tide-setup)))
+   (rjsx-mode . tide-setup)
+   (before-save . tide-format-before-save)))
 
 (use-package rjsx-mode
   :after (tide)
