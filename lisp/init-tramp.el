@@ -50,7 +50,27 @@
     "Write a shell script to call this emacsclient -e '(tramp-terminator)'"
     (interactive)
     (tramp-cleanup-all-connections)
-    (tramp-cleanup-all-buffers)))
+    (tramp-cleanup-all-buffers))
+
+  ;; Let tramp quicky
+  (setq make-backup-files nil)
+  (setq create-lockfiles nil)
+  (setq tramp-auto-save-directory "/tmp"))
+
+
+(use-package helm-tramp
+  :hook
+  ((helm-tramp-pre-command-hook . helm-tramp/disable-config)
+   (helm-tramp-quit-hook . helm-tramp/enable-config))
+  :config
+  (defun helm-tramp/disable-config ()
+    (global-aggressive-indent-mode 0)
+    (projectile-mode 0)
+    (editorconfig-mode 0))
+  (defun helm-tramp/enable-config ()
+    (global-aggressive-indent-mode 1)
+    (projectile-mode 1)
+    (editorconfig-mode 1)))
 
 
 (provide 'init-tramp)
