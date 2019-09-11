@@ -176,8 +176,10 @@
   (setq-mode-local rjsx-mode emmet-expand-jsx-className? t)
   (setq-mode-local web-mode emmet-expand-jsx-className? nil))
 
+(use-package jq-format)
 
-;;; Use Prettier to format code
+(use-package json-mode
+  :pin melpa-stable)
 
 
 (provide 'init-javascript)
