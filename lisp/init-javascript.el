@@ -143,14 +143,14 @@
    (before-save . tide-format-before-save)))
 
 (use-package rjsx-mode
-  :after (tide)
+  :after (tide flycheck)
   :mode ("\\.jsx\\'")
   :config
   (flycheck-select-checker 'tsx-tide))
 
 ;;; For typescript
 (use-package rjsx-mode
-  :after (tide)
+  :after (tide flycheck)
   :mode ("\\.tsx\\'")
   :config
   (flycheck-select-checker 'tsx-tide))
