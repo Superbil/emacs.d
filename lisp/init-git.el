@@ -16,8 +16,7 @@
   (("C-x g" . magit-status)
    ("C-x M-g" . magit-dispatch-popup))
   :init
-  (setq-default magit-diff-refine-hunk t
-                magit-log-arguments `("-n256" "--graph" "--decorate" "--show-signature"))
+  (setq-default magit-diff-refine-hunk t)
 
   :config
   (add-hook 'magit-popup-mode-hook 'sanityinc/no-trailing-whitespace)
