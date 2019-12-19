@@ -72,7 +72,8 @@
   :config
   (setq dired-guess-shell-alist-user
         '(("\\.xcodeproj$" "open")
-          ("\\.xcworkspace" "open"))))
+          ("\\.xcworkspace" "open")
+          ("\\.pdf" "open"))))
 
 
 (provide 'init-dired)
