@@ -5,6 +5,7 @@
          :map org-mode-map
          ("C-M-<up>" . org-up-element))
   :config
+  (add-to-list 'org-modules 'org-habit)
   (require 'org-tempo)
   (add-to-list 'org-modules 'org-tempo))
 
