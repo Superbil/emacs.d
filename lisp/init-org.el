@@ -3,7 +3,10 @@
   :bind (("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
          :map org-mode-map
-         ("C-M-<up>" . org-up-element)))
+         ("C-M-<up>" . org-up-element))
+  :config
+  (require 'org-tempo)
+  (add-to-list 'org-modules 'org-tempo))
 
 ;; Various preferences
 (setq org-catch-invisible-edits 'show-and-error
