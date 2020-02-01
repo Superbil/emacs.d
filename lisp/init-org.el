@@ -222,7 +222,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
             (org-agenda-sorting-strategy
              (quote (time-up priority-down tag-up)))
             (org-deadline-warning-days 0)))
-          (" " "GTD"
+          ("z" "GTD"
            ((tags-todo "-CANCELLED-WAITING-HOLD/!NEXT"
                        ((org-agenda-overriding-header "What you should doing right now!")
                         (org-agenda-skip-function t)
