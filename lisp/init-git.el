@@ -16,7 +16,10 @@
   (("C-x g" . magit-status)
    ("C-x M-g" . magit-dispatch-popup))
   :init
-  (setq-default magit-diff-refine-hunk t)
+  (setq-default magit-diff-refine-hunk nil
+                magit-refresh-status-buffer nil
+                magit-diff-highlight-trailing nil
+                magit-diff-paint-whitespace nil)
 
   :config
   (add-hook 'magit-popup-mode-hook 'sanityinc/no-trailing-whitespace)
