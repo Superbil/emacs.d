@@ -2,7 +2,7 @@
   :ensure nil
   :init
   ;;; Use rsync is quickly or just use ssh
-  (setq tramp-default-method "ssh")
+  (setq tramp-default-method "rsync")
   :bind (("C-c s u" . sudo-edit-current-file))
   :config
   (defun prepare-tramp-sudo-string (tempfile)
