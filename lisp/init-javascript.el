@@ -45,7 +45,7 @@
   (js2-imenu-extras-setup))
 
 ;; js-mode
-(use-package js-mode
+(use-package js
   :ensure nil
   :mode ("node" . preferred-javascript-mode)
   :init
