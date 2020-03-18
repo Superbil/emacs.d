@@ -40,16 +40,6 @@
   :config
   (add-hook 'python-mode-hook 'flymake-python-pyflakes-load))
 
-;;----------------------------------------------------------------------------
-;; pipenv setup
-;;----------------------------------------------------------------------------
-(use-package pipenv
-  :after python-mode
-  :hook (python-mode . pipenv-mode)
-  :init
-  (setq
-   pipenv-projectile-after-switch-function
-   #'pipenv-projectile-after-switch-extended))
 
 ;;----------------------------------------------------------------------------
 ;; pdbtrack constants
