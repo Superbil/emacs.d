@@ -422,7 +422,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
   :config
   (org-babel-do-load-languages
    'org-babel-load-languages
-   `((R . t)
+   `((shell . t)
      (ditaa . t)
      (dot . t)
      (emacs-lisp . t)
