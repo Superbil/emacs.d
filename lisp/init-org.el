@@ -435,7 +435,6 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
      (python . t)
      (ruby . t)
      (screen . nil)
-     (,(if (locate-library "ob-sh") 'sh 'shell) . t)
      (sql . nil)
      (sqlite . t))))
 
