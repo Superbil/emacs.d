@@ -6,7 +6,9 @@
 ;; python side must install elpy rope pyflakes pep8 [jedi]
 (use-package elpy
   :after python-mode
-  :config (elpy-enable))
+  :config
+  (setq elpy-rpc-python-command "python3")
+  (elpy-enable))
 
 ;;; Setup elpy use ipython
 (use-package elpy
