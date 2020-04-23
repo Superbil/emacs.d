@@ -16,6 +16,26 @@
   (setq-default diredp-hide-details-initially-flag nil
                 dired-dwim-target t)
   :config
+  (defun image-dired-show-metadata (file-list)
+    "Display metatata of buffer image file or marked files in dired.
+ (typically image files)"
+    (interactive
+     (let ((myFileList
+            (cond
+             ((string-equal major-mode "dired-mode") (dired-get-marked-files))
+             ((string-equal major-mode "image-mode") (list (buffer-file-name)))
+             (t (list (read-from-minibuffer "file name:"))))))
+       (list myFileList)))
+    (mapc
+     (lambda (ξf)
+       (let* ((image-exif "exiftool")
+              (cmdStr (format "%s '%s'" image-exif (file-relative-name ξf))))
+         (if (shell-command (format "which %s" image-exif))
+             (message (format "%s is not installed" image-exif))
+           (shell-command cmdStr)
+           )))
+     file-list))
+
   (when (fboundp 'toggle-diredp-find-file-reuse-dir)
     (toggle-diredp-find-file-reuse-dir 1)))
 
