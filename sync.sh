@@ -11,16 +11,12 @@
 # - git push
 #
 # Usage:
-#   ./sync.sh
-#     sync work at current folder (pwd)
+#   ./sync.sh [<git_repo_folder>]
+#     sync work at current folder (pwd) or <git_repo_folder>
 #
-#   sync_work=<git_repo_folder> ./sync.sh
-#     sync work at <git_repo_folder>
-
-
 set -e
 
-sync_work="${sync_work:-$(pwd)}"
+sync_work="${1:-$(pwd)}"
 commit_message="Update for $(date '+%Y-%m-%d %H:%M') at $(hostname)"
 
 # Pull remote, abort if fast-forward is not possible
