@@ -1,4 +1,22 @@
 #!/usr/local/bin/zsh -f
+#
+# sync.sh
+# Author: superbil
+#
+# This scirpt will do such git commands, like sync with remote repo.
+# When one command is failed, just exit.
+# - git pull
+# - git add
+# - git commit
+# - git push
+#
+# Usage:
+#   ./sync.sh
+#     sync work at current folder (pwd)
+#
+#   sync_work=<git_repo_folder> ./sync.sh
+#     sync work at <git_repo_folder>
+
 
 set -e
 
