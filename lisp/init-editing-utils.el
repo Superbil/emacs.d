@@ -270,7 +270,9 @@
 
   :diminish whole-line-or-region-local-mode
   :config
-  (whole-line-or-region-mode t)
+  (if (fboundp 'whole-line-or-region-mode)
+      (whole-line-or-region-mode t)
+    (whole-line-or-region-global-mode t))
   (make-variable-buffer-local 'whole-line-or-region-mode)
   (suspend-mode-during-cua-rect-selection 'whole-line-or-region-mode))
 
