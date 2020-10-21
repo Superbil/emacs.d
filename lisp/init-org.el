@@ -1,5 +1,4 @@
 (use-package org
-  :ensure org-plus-contrib
   :pin org
   :bind (("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
