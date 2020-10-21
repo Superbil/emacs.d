@@ -61,7 +61,14 @@
 ;;----------------------------------------------------------------------------
 (use-package midnight
   :init
-  (setq midnight-delay 0))
+  (setq midnight-delay 0)
+  :config
+  (setq clean-buffer-list-delay-general 7)
+  (setq clean-buffer-list-kill-regexps
+        (nconc clean-buffer-list-kill-regexps
+               '("\\`\\*Customize .*\\*\\'"
+                 "\\`\\magit: .*\\*\\'"
+                 ))))
 
 
 (provide 'init-sessions)
