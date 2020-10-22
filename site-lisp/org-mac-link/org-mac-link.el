@@ -12,6 +12,7 @@
 ;;
 ;; Version: 1.1
 ;; Keywords: org, mac, hyperlink
+;; Homepage: https://github.com/Superbil/emacs.d/tree/master/site-lisp/org-mac-link
 ;;
 ;; Version: 1.2
 ;; Keywords: outlook
@@ -279,13 +280,13 @@ When done, go grab the link, and insert it at point."
 (defun org-mac-paste-applescript-links (as-link-list)
   "Paste in a list of links from an applescript handler.
 The links are of the form <link>::split::<name>."
-  (let* ((noquote-as-link-list 
-	  (if (string-prefix-p "\"" as-link-list) 
-	      (substring as-link-list 1 -1) 
+  (let* ((noquote-as-link-list
+	  (if (string-prefix-p "\"" as-link-list)
+	      (substring as-link-list 1 -1)
 	    as-link-list))
 	 (link-list
           (mapcar (lambda (x) (if (string-match "\\`\"\\(.*\\)\"\\'" x)
-				  (setq x (match-string 1 x)))
+			     (setq x (match-string 1 x)))
 		    x)
 		  (split-string noquote-as-link-list "[\r\n]+")))
          split-link URL description orglink orglink-insert rtn orglink-list)
