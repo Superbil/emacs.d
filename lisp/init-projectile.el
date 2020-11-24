@@ -2,10 +2,6 @@
   :bind-keymap ("C-c p" . projectile-command-map)
   :bind (:map projectile-command-map
               ("P" . projectile-switch-open-vc))
-  :init
-  (setq projectile-mode-line
-        '(:eval (format " 🎛️[%s]"
-                        (projectile-project-name))))
   :preface
   (defun projectile-switch-open-vc (&optional arg)
     "Switch to a project we have currently opened.
@@ -25,6 +21,7 @@
       (open-xcode-workspace (projectile-project-root))))
   :config
   (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '(".DS_Store" ".gitignore")))
+  (setq projectile-mode-line-prefix " 🎛️")
 
   (fullframe projectile-switch-open-vc magit-mode-quit-window)
 
