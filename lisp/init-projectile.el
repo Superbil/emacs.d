@@ -1,7 +1,7 @@
 (use-package projectile
+  :bind-keymap ("C-c p" . projectile-command-map)
   :bind (:map projectile-command-map
               ("P" . projectile-switch-open-vc))
-  :after (text-mode prog-mode)
   :init
   (setq projectile-mode-line
         '(:eval (format " 🎛️[%s]"
@@ -24,7 +24,6 @@
     (projectile-with-default-dir (projectile-project-root)
       (open-xcode-workspace (projectile-project-root))))
   :config
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '(".DS_Store" ".gitignore")))
 
   (fullframe projectile-switch-open-vc magit-mode-quit-window)
