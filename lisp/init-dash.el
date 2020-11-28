@@ -1,3 +1,9 @@
+;;; init-dash.el --- Integrate with the Mac app "Dash" -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
+;; Support for the http://kapeli.com/dash documentation browser
+
 (use-package dash
   :config (dash-enable-font-lock))
 
@@ -13,3 +19,4 @@
 
 
 (provide 'init-dash)
+;;; init-dash.el ends here

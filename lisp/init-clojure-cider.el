@@ -1,3 +1,7 @@
+;;; init-clojure-cider.el --- Cider support for clojure -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package cider
   :init
   (setq nrepl-popup-stacktraces nil)
@@ -16,3 +20,4 @@
 
 
 (provide 'init-clojure-cider)
+;;; init-clojure-cider.el ends here

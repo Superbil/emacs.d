@@ -1,3 +1,7 @@
+;;; init-compile.el --- Helpers for M-x compile -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package alert
   :preface
   (if *is-a-mac* (setq alert-default-style 'osx-notifier))
@@ -59,3 +63,4 @@
 
 
 (provide 'init-compile)
+;;; init-compile.el ends here

@@ -3,6 +3,9 @@
   (defvar anything-c-source-objc-headline
     '((name . "Objective-C Headline")
       (headline  "^[-+@]\\|^#pragma mark")))
+;;; init-objc.el --- Objective-c editing -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
   :preface
   (defun objc-headline ()
@@ -23,3 +26,4 @@
 
 
 (provide 'init-objc)
+;;; init-objc.el ends here

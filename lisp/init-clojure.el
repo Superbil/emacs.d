@@ -1,3 +1,7 @@
+;;; init-clojure.el --- Clojure support -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;; See also init-clojure-cider.el
 
 (use-package clojure-mode
@@ -10,3 +14,4 @@
 
 
 (provide 'init-clojure)
+;;; init-clojure.el ends here

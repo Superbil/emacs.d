@@ -1,3 +1,7 @@
+;;; init-lisp.el --- Emacs lisp settings, and common config for other lisps -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package elisp-slime-nav
   :after elisp-mode
   :diminish
@@ -330,3 +334,4 @@
 
 
 (provide 'init-lisp)
+;;; init-lisp.el ends here

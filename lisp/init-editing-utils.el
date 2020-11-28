@@ -1,3 +1,8 @@
+;;; init-editing-utils.el --- Day-to-day editing helpers -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
+;; -*- lexical-binding: t -*-
 (use-package unfill)
 
 (use-package elec-pair
@@ -354,3 +359,4 @@ With arg N, insert N newlines."
 
 
 (provide 'init-editing-utils)
+;;; init-editing-utils.el ends here

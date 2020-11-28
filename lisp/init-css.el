@@ -1,3 +1,7 @@
+;;; init-css.el --- CSS/Less/SASS/SCSS support -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;;; Colourise CSS colour literals
 (use-package rainbow-mode
   :config
@@ -67,3 +71,4 @@
 
 
 (provide 'init-css)
+;;; init-css.el ends here

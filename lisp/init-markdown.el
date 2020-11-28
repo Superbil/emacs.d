@@ -1,3 +1,7 @@
+;;; init-markdown.el --- Markdown support -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package markdown-mode
   :bind (:map markdown-mode-map
               ("C-c C-v" . markdown-preview-with-app))
@@ -18,3 +22,4 @@ otherwise fallback to `markdown-preview'"
 
 
 (provide 'init-markdown)
+;;; init-markdown.el ends here

@@ -1,3 +1,7 @@
+;;; init-org.el --- Org-mode config -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package org
   :pin org
   :bind (("C-c l" . org-store-link)
@@ -441,3 +445,4 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 
 
 (provide 'init-org)
+;;; init-org.el ends here

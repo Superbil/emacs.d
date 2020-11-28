@@ -1,3 +1,7 @@
+;;; init-flycheck.el --- Configure Flycheck global behaviour -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package flycheck
   :preface
   (defun flycheck-org-lint-start (checker callback)
@@ -24,3 +28,4 @@
 
 
 (provide 'init-flycheck)
+;;; init-flycheck.el ends here

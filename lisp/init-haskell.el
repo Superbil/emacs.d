@@ -1,3 +1,7 @@
+;;; init-haskell.el --- Support the Haskell language -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;; TODO: https://wunki.org/posts/2014-05-17-haskell-packages-development.html
 ;; https://github.com/chrisdone/chrisdone-emacs/blob/master/config/haskell.el
 ;; TODO: ghci-ng
@@ -49,3 +53,4 @@
 
 
 (provide 'init-haskell)
+;;; init-haskell.el ends here

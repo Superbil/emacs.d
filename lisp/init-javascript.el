@@ -1,3 +1,7 @@
+;;; init-javascript.el --- Support for Javascript and derivatives -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
   "Javascript mode to use for .js files."
@@ -183,3 +187,4 @@
 
 
 (provide 'init-javascript)
+;;; init-javascript.el ends here

@@ -1,5 +1,13 @@
-;;; This file bootstraps the configuration, which is divided into
-;;; a number of other files.
+;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; This file bootstraps the configuration, which is divided into
+;; a number of other files.
+
+;;; Code:
+
+;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
+;;(setq debug-on-error t)
 
 (let ((minver "25"))
   (when (version< emacs-version minver)
@@ -168,3 +176,4 @@
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
+;;; init.el ends here

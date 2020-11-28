@@ -1,12 +1,12 @@
-(use-package exec-path-from-shell
-  :if (memq window-system '(mac ns x))
-  :demand t
-  :init
-  (setq exec-path-from-shell-check-startup-files nil)
-  :config
-  (dolist (var '("SSH_AUTH_SOCK" "LANG" "LC_CTYPE" "GEM_PATH" "GOPATH"))
-    (add-to-list 'exec-path-from-shell-variables var))
-  (exec-path-from-shell-initialize))
+;;; init-exec-path.el --- Set up exec-path to help Emacs find programs  -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
+(use-package exec-path-from-shell)
+
+(after-load 'exec-path-from-shell
+            (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "GOPATH"))
+              (add-to-list 'exec-path-from-shell-variables var)))
 
 ;; Emacs cask seems to depend on the EMACS environment variable being set to the binary path of emacs.
 (setenv "EMACS"
@@ -14,3 +14,4 @@
 
 
 (provide 'init-exec-path)
+;;; init-exec-path.el ends here

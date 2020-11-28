@@ -1,3 +1,7 @@
+;;; init-isearch.el --- isearch settings -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;; Show number of matches while searching
 (use-package anzu
   :bind (([remap query-replace-regexp] . anzu-query-replace-regexp)
@@ -42,3 +46,4 @@ This is useful when followed by an immediate kill."
 
 
 (provide 'init-isearch)
+;;; init-isearch.el ends here

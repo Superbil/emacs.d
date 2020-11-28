@@ -1,3 +1,7 @@
+;;; init-ledger.el --- Support for the ledger CLI accounting tool -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package ledger-mode
   :bind (:map ledger-mode-map
               ("RET" . newline)
@@ -8,7 +12,10 @@
   (setq ledger-highlight-xact-under-point nil
         ledger-use-iso-dates nil)
   :config
-  (use-package flycheck-ledger)
+  (use-package flycheck-ledger
+    :after ledger-mode
+    :config
+    (require 'flycheck-ledger))
 
   (when (memq window-system '(mac ns))
     (exec-path-from-shell-copy-env "LEDGER_FILE"))
@@ -17,3 +24,4 @@
 
 
 (provide 'init-ledger)
+;;; init-ledger.el ends here

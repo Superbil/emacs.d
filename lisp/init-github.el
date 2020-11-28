@@ -1,3 +1,7 @@
+;;; init-github.el --- Github integration -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package browse-at-remote)
 (use-package yagist
   :commands yagist-list
@@ -12,3 +16,4 @@
 
 
 (provide 'init-github)
+;;; init-github.el ends here

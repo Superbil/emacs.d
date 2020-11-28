@@ -1,3 +1,7 @@
+;;; init-sessions.el --- Save and restore editor sessions between restarts -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package desktop
   :ensure nil
   :init
@@ -72,3 +76,4 @@
 
 
 (provide 'init-sessions)
+;;; init-sessions.el ends here

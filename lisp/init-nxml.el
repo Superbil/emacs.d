@@ -1,3 +1,7 @@
+;;; init-nxml.el --- Support for editing XML with NXML -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package nxml-mode
   :ensure nil
   :mode ("<\\?xml " . nxml-mode)
@@ -8,6 +12,7 @@
                           '("xml" "xsd" "sch" "rng" "xslt" "svg" "rss"
                             "gpx" "tcx" "plist"))
                          "\\'"))
+  (setq magic-mode-alist (cons '("<\\?xml " . nxml-mode) magic-mode-alist))
   (fset 'xml-mode 'nxml-mode)
   (setq nxml-slash-auto-complete-flag t)
   (add-hook 'nxml-mode-hook
@@ -36,3 +41,4 @@ between them.  It then indents the markup by using nxml's indentation rules."
 
 
 (provide 'init-nxml)
+;;; init-nxml.el ends here

@@ -1,3 +1,7 @@
+;;; init-spelling.el --- Spell check settings -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (require 'ispell
          :ensure nil)
 
@@ -6,3 +10,4 @@
 
 
 (provide 'init-spelling)
+;;; init-spelling.el ends here

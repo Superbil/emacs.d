@@ -1,3 +1,7 @@
+;;; init-slime.el --- Slime support for Common Lisp -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package hippie-expand-slime
   :after slime)
 
@@ -49,3 +53,4 @@
 
 
 (provide 'init-slime)
+;;; init-slime.el ends here

@@ -1,3 +1,10 @@
+;;; init-html.el --- Editing HTML -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; ERB is configured separately in init-ruby
+
+;;; Code:
+
 (use-package sgml-mode
   :mode "\\.\\(jsp\\|tmpl\\)\\'")
 
@@ -24,3 +31,4 @@
 
 
 (provide 'init-html)
+;;; init-html.el ends here

@@ -1,3 +1,9 @@
+;;; init-dired.el --- Dired customisations -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
+(setq-default dired-dwim-target t)
+
 ;; Prefer g-prefixed coreutils version of standard utilities when available
 (let ((gls (executable-find "gls")))
   (when gls (setq insert-directory-program gls
@@ -97,3 +103,4 @@
 
 
 (provide 'init-dired)
+;;; init-dired.el ends here

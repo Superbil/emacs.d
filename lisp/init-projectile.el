@@ -1,3 +1,7 @@
+;;; init-projectile.el --- Use Projectile for navigation within projects -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package projectile
   :bind-keymap ("C-c p" . projectile-command-map)
   :bind (:map projectile-command-map
@@ -36,3 +40,4 @@
 
 
 (provide 'init-projectile)
+;;; init-projectile.el ends here

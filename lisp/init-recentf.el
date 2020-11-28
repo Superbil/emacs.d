@@ -1,3 +1,7 @@
+;;; init-recentf.el --- Settings for tracking recent files -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package recentf
   :ensure nil
   :init
@@ -8,3 +12,4 @@
 
 
 (provide 'init-recentf)
+;;; init-recentf.el ends here

@@ -1,3 +1,7 @@
+;;; init-sql.el --- Support for SQL -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package sql
   :bind (:map sql-mode-map
               ("C-c C-z" . sanityinc/pop-to-sqli-buffer))
@@ -56,3 +60,4 @@ Fix for the above hasn't been released as of Emacs 25.2."
 
 
 (provide 'init-sql)
+;;; init-sql.el ends here

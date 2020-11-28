@@ -1,3 +1,7 @@
+;;; init-hippie-expand.el --- Settings for hippie-expand -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package hippie-expand
   :bind ("M-/" . hippie-expand)
   :ensure nil
@@ -12,3 +16,4 @@
 
 
 (provide 'init-hippie-expand)
+;;; init-hippie-expand.el ends here

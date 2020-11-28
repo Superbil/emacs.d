@@ -1,3 +1,7 @@
+;;; init-folding.el --- Support code and region folding -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package origami
   :after prog-mode
   :bind (:map origami-mode-map
@@ -8,3 +12,4 @@
 
 
 (provide 'init-folding)
+;;; init-folding.el ends here
