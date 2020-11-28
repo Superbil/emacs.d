@@ -33,20 +33,26 @@
                 js2-mode-show-strict-warnings nil)
 
   :preface
-  (defun sanityinc/disable-js2-checks-if-flycheck-active ()
+  ;; ... but enable it if flycheck can't handle javascript
+  (defun sanityinc/enable-js2-checks-if-flycheck-inactive ()
     (unless (flycheck-get-checker-for-buffer)
-      (set (make-local-variable 'js2-mode-show-parse-errors) t)
-      (set (make-local-variable 'js2-mode-show-strict-warnings) t)))
+      (setq-local js2-mode-show-parse-errors t)
+      (setq-local js2-mode-show-strict-warnings t)
+      (when (derived-mode-p 'js-mode)
+        (js2-minor-mode 1))))
 
   :config
-  ;; ... but enable it if flycheck can't handle javascript
   (use-package flycheck
     :after flycheck-get-checker-for-buffer
     :config
-    (add-hook 'js2-mode-hook 'sanityinc/disable-js2-checks-if-flycheck-active))
+    (add-hook 'js-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive)
+    (add-hook 'js2-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive))
 
   (add-hook 'js2-mode-hook (lambda () (setq mode-name "JS2")))
-  (js2-imenu-extras-setup))
+  (js2-imenu-extras-setup)
+
+  ;; In Emacs >= 25, the following is an alias for js-indent-level anyway
+  (setq-default js2-basic-offset preferred-javascript-indent-level))
 
 ;; js-mode
 (use-package js
@@ -59,13 +65,22 @@
 ;; Javascript nests {} and () a lot, so I find this helpful
 
 (use-package xref-js2
-  :bind (:map js2-mode-map
-              ("M-." . nil))
-  :after js2-mode
-  :if (executable-find "ag")
+  :if (or (executable-find "rg") (executable-find "ag"))
+  :preface
+  (defun sanityinc/enable-xref-js2 ()
+    (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))
+
   :config
-  (add-hook 'js2-mode-hook
-            (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
+  (when (executable-find "rg")
+    (setq-default xref-js2-search-program 'rg))
+
+  (use-package js
+    :bind ("M-." . js-mode-map)
+    :hook (js-mode-hook . sanityinc/enable-xref-js2))
+
+  (use-package js2-mode
+    :bind ("M-." . js2-mode-map)
+    :hook (js2-mode-hook . sanityinc/enable-xref-js2)))
 
 
 
@@ -134,6 +149,14 @@
             (lambda () (inferior-js-keys-mode -1))))
 
 
+
+(use-package add-node-modules-path
+  :after (typescript-mode js-mode js2-mode coffee-mode)
+  :config
+  (dolist (mode '(typescript-mode js-mode js2-mode coffee-mode))
+    (add-hook (derived-mode-hook-name mode) 'add-node-modules-path)))
+
+
 ;; ---------------------------------------------------------------------------
 ;; React.js
 ;; ---------------------------------------------------------------------------
@@ -182,8 +205,7 @@
 
 (use-package jq-format)
 
-(use-package json-mode
-  :pin melpa-stable)
+(use-package json-mode)
 
 
 (provide 'init-javascript)
