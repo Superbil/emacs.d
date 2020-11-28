@@ -16,6 +16,7 @@
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(require 'init-benchmarking) ;; Measure startup time
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
