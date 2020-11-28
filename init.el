@@ -74,6 +74,7 @@
 (require 'init-company)
 (require 'init-windows)
 (require 'init-sessions)
+(require 'init-mmm)
 (require 'init-fonts)
 
 (require 'init-editing-utils)
