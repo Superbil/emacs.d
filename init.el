@@ -56,6 +56,7 @@
 
 ;; (require 'init-async)
 (require 'init-frame-hooks)
+(require 'init-xterm)
 (require 'init-term)
 (require 'init-themes)
 (require 'init-osx-keys)
