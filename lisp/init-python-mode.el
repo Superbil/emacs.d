@@ -10,16 +10,11 @@
   (setq elpy-rpc-python-command "python3")
   (elpy-enable))
 
-;;; Setup elpy use ipython
-(use-package elpy
-  :if (executable-find "jupyter")
-  :config
-  (setq python-shell-interpreter "jupyter"
-        python-shell-interpreter-args "console --simple-prompt"
-        python-shell-prompt-detect-failure-warning nil)
-  (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
-  ;; Emacs IPython Notebook
-  (use-package ein))
+;;; Setup elpy
+(use-package elpy)
+
+;; Emacs IPython Notebook
+(use-package ein)
 
 (use-package pip-requirements)
 
