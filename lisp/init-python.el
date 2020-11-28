@@ -1,13 +1,18 @@
+;;; init-python.el --- Python editing -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package python-mode
   :ensure nil
   :mode (("SConstruct\\'" . python-mode)
          ("SConscript\\'" . python-mode)))
 
+(setq python-shell-interpreter "python3")
+
 ;; python side must install elpy rope pyflakes pep8 [jedi]
 (use-package elpy
   :after python-mode
   :config
-  (setq elpy-rpc-python-command "python3")
   (elpy-enable))
 
 ;;; Setup elpy
@@ -24,10 +29,9 @@
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
   (use-package company-anaconda
-    :after company
+    :after (company python)
     :config
-    (add-hook 'python-mode-hook
-              (lambda () (sanityinc/local-push-company-backend 'company-anaconda)))))
+    (push 'company-anaconda company-backends)))
 
 ;;----------------------------------------------------------------------------
 ;; On-the-fly syntax checking via flymake
@@ -46,4 +50,5 @@
   "Regular expression pdbtrack uses to find a stack trace entry.")
 
 
-(provide 'init-python-mode)
+(provide 'init-python)
+;;; init-python.el ends here
