@@ -105,6 +105,7 @@
 (require 'init-haskell)
 (require 'init-ruby-mode)
 (require 'init-yaml)
+(require 'init-docker)
 (require 'init-objc)
 (require 'init-sql)
 (require 'init-eshell)
