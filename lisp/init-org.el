@@ -416,8 +416,8 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 
 (use-package org-bullets)
 
-(use-package org-fstree
-  :after org)
+;; (use-package org-fstree
+;;   :after org)
 
 (use-package org-cliplink
   :after org)
