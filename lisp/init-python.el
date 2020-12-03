@@ -7,14 +7,6 @@
   :mode (("SConstruct\\'" . python-mode)
          ("SConscript\\'" . python-mode)))
 
-(setq python-shell-interpreter "python3")
-
-;; python side must install elpy rope pyflakes pep8 [jedi]
-(use-package elpy
-  :after python-mode
-  :config
-  (elpy-enable))
-
 ;;; Setup elpy
 (use-package elpy)
 
@@ -32,6 +24,8 @@
     :after (company python)
     :config
     (push 'company-anaconda company-backends)))
+
+(use-package pythonic)
 
 ;;----------------------------------------------------------------------------
 ;; On-the-fly syntax checking via flymake
