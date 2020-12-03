@@ -16,14 +16,16 @@
 (use-package pip-requirements)
 
 (use-package anaconda-mode
-  :after python-mode
   :config
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
   (use-package company-anaconda
-    :after (company python)
+    :after (company python-mode)
     :config
-    (push 'company-anaconda company-backends)))
+    (push 'company-anaconda company-backends))
+  ;; Fix some reading error https://github.com/pythonic-emacs/anaconda-mode#faq
+  (when *is-a-mac*
+    (setq anaconda-mode-localhost-address "localhost")))
 
 (use-package pythonic)
 
