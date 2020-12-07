@@ -10,7 +10,8 @@
   (fullframe docker-networks tablist-quit)
   (fullframe docker-containers tablist-quit))
 
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+  :mode ("Dockerfile"))
 
 (use-package docker-compose-mode)
 
