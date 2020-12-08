@@ -1,3 +1,7 @@
+;;; init-async.el --- Async packages -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package async
   :diminish)
 
@@ -9,3 +13,4 @@
 
 
 (provide 'init-async)
+;;; init-async.el ends here
