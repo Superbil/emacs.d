@@ -62,7 +62,7 @@
   :hook
   ((helm-tramp-pre-command-hook . helm-tramp/disable-config)
    (helm-tramp-quit-hook . helm-tramp/enable-config))
-  :config
+  :preface
   (defun helm-tramp/disable-config ()
     (global-aggressive-indent-mode 0)
     (projectile-mode 0)
