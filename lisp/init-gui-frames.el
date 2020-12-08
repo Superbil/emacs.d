@@ -5,12 +5,15 @@
 ;;----------------------------------------------------------------------------
 ;; Stop C-z from minimizing windows under OS X
 ;;----------------------------------------------------------------------------
-(defun sanityinc/maybe-suspend-frame ()
-  (interactive)
-  (unless (and *is-a-mac* window-system)
-    (suspend-frame)))
-
-(global-set-key (kbd "C-z") 'sanityinc/maybe-suspend-frame)
+(use-package frame
+  :ensure nil
+  :preface
+  (defun sanityinc/maybe-suspend-frame ()
+    "Minimizing windows under OS X."
+    (interactive)
+    (unless (and *is-a-mac* window-system)
+      (suspend-frame)))
+  :bind ("C-z" . sanityinc/maybe-suspend-frame))
 
 
 ;;----------------------------------------------------------------------------
@@ -31,6 +34,10 @@
 ;;----------------------------------------------------------------------------
 ;; Window size and features
 ;;----------------------------------------------------------------------------
+(setq-default
+ window-resize-pixelwise t
+ frame-resize-pixelwise t)
+
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 (when (fboundp 'set-scroll-bar-mode)
