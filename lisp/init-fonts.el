@@ -1,10 +1,15 @@
-;;; Character sets
+;;; init-fonts.el --- Custom fonts and scale -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
+;;; Character sets
 
 ;;; Changing font sizes
 (use-package default-text-scale
   :bind (("C-M-=" . default-text-scale-increase)
-         ("C-M--" . default-text-scale-decrease)))
+         ("C-M--" . default-text-scale-decrease))
+  :config
+  (add-hook 'after-init-hook 'default-text-scale-mode))
 
 
 (defun sanityinc/maybe-adjust-visual-fill-column ()
@@ -20,3 +25,4 @@ This is helpful for writeroom-mode, in particular."
 
 
 (provide 'init-fonts)
+;;; init-fonts.el ends here
