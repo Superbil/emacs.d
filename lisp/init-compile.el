@@ -5,7 +5,7 @@
 (use-package alert
   :preface
   (if *is-a-mac* (setq alert-default-style 'osx-notifier))
-  :config
+  :preface
   (defun sanityinc/alert-after-compilation-finish (buf result)
     "Use `alert' to report compilation RESULT if BUF is hidden."
     (when (buffer-live-p buf)
@@ -31,6 +31,7 @@
   (defun sanityinc/colourise-compilation-buffer ()
     (when (eq major-mode 'compilation-mode)
       (ansi-color-apply-on-region compilation-filter-start (point-max))))
+  :hook (compilation-filter . sanityinc/colourise-compilation-buffer)
   :config
   ;; Customize `alert-default-style' to get messages after compilation
   (add-hook 'compilation-finish-functions 'sanityinc/alert-after-compilation-finish)
@@ -56,8 +57,7 @@
     "Put \"*Shell Command Output*\" buffers into view-mode."
     (unless output-buffer
       (with-current-buffer "*Shell Command Output*"
-        (view-mode 1))))
-  (add-hook 'compilation-filter-hook 'sanityinc/colourise-compilation-buffer))
+        (view-mode 1)))))
 
 (use-package cmd-to-echo)
 

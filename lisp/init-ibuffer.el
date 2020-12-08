@@ -8,14 +8,15 @@
 
 (use-package ibuffer-vc
   :after ibuffer
-  :config
+  :preface
   (defun ibuffer-set-up-preferred-filters ()
     (ibuffer-vc-set-filter-groups-by-vc-root)
     (unless (eq ibuffer-sorting-mode 'filename/process)
       (ibuffer-do-sort-by-filename/process)))
+  :hook
+  (ibuffer . ibuffer-set-up-preferred-filters)
 
-  (add-hook 'ibuffer-hook 'ibuffer-set-up-preferred-filters)
-
+  :config
   (setq-default ibuffer-show-empty-filter-groups nil))
 
 (use-package ibuffer

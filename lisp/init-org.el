@@ -309,8 +309,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 (use-package hl-line
   :after org-agenda
   :ensure nil
-  :config
-  (add-hook 'org-agenda-mode-hook 'hl-line-mode))
+  :hook (org-agenda-mode . hl-line-mode))
 
 ;; Agenda speedup and optimization http://orgmode.org/worg/agenda-optimization.html
 (setq org-agenda-use-tag-inheritance '(search timeline agenda))

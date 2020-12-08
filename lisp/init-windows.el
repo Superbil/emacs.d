@@ -25,8 +25,7 @@
         (winner-undo)
       (delete-other-windows)))
 
-  :config
-  (add-hook 'after-init-hook 'winner-mode))
+  :hook (after-init . winner-mode))
 
 
 ;; Make "C-x o" prompt for a target window when there are more than 2

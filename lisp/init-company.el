@@ -53,14 +53,15 @@
     (when sanityinc/page-break-lines-on-p
       (page-break-lines-mode 1)))
 
+  :hook
+  ((company-completion-started . sanityinc/page-break-lines-disable)
+   (company-completion-finished . sanityinc/page-break-lines-maybe-reenable)
+   (company-completion-cancelled . sanityinc/page-break-lines-maybe-reenable))
+
   :config
   (defvar sanityinc/page-break-lines-on-p nil)
 
-  (make-variable-buffer-local 'sanityinc/page-break-lines-on-p)
-
-  (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
-  (add-hook 'company-completion-finished-hook 'sanityinc/page-break-lines-maybe-reenable)
-  (add-hook 'company-completion-cancelled-hook 'sanityinc/page-break-lines-maybe-reenable))
+  (make-variable-buffer-local 'sanityinc/page-break-lines-on-p))
 
 
 (provide 'init-company)

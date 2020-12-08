@@ -70,8 +70,8 @@
       (sanityinc/set-tabulated-list-column-width "Version" 13)
       (let ((longest-archive-name (apply 'max (mapcar 'length (mapcar 'car package-archives)))))
         (sanityinc/set-tabulated-list-column-width "Archive" longest-archive-name))))
-  :config
-  (add-hook 'package-menu-mode-hook 'sanityinc/maybe-widen-package-menu-columns))
+  :hook
+  (package-menu-mode . sanityinc/maybe-widen-package-menu-columns))
 
 
 (provide 'init-elpa)

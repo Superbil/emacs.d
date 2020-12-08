@@ -26,9 +26,8 @@
          ;; i-search
          ("s" . isearch-forward))
 
+  :hook (twittering-mode . sanityinc/no-trailing-whitespace)
   :config
-  (add-hook 'twittering-mode-hook 'sanityinc/no-trailing-whitespace)
-
   ;; setup status-format
   (twittering-update-status-format "%i %S @%s,  %@:\n%FILL{  %T // from %f%L%r%R}\n"))
 

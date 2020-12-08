@@ -60,11 +60,11 @@
               ("C-t r" . helm-gtags-find-rtag)
               ("C-t s" . helm-gtags-find-symbol)
               ("C-t p" . helm-gtags-parse-file))
-  :init
-  (add-hook 'c++-mode-hook 'helm-gtags-mode)
-  (add-hook 'c-mode-hook 'helm-gtags-mode)
-  (add-hook 'objc-mode-hook 'helm-gtags-mode)
-  ;; (add-hook 'python-mode-hook 'helm-gtags-mode)
+  :hook ((c++-mode . helm-gtags-mode)
+         (c-mode . helm-gtags-mode)
+         (objc-mode . helm-gtags-mode)
+         ;; (python-mode-hook . helm-gtags-mode)
+         )
   :diminish (helm-gtags-mode . ("tags"))
   :config
   (global-unset-key "\C-t")

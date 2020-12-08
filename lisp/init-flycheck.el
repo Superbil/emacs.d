@@ -15,8 +15,8 @@
            (org-current-line) (1+ (current-column))
            'warning (cadr err) :checker checker))
         (org-lint-link-to-local-file (org-element-parse-buffer))))))
+  :hook (after-init . global-flycheck-mode)
   :config
-  (add-hook 'after-init-hook 'global-flycheck-mode)
   (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
 
   (require 'org-lint)

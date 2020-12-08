@@ -52,8 +52,8 @@ With two PREFIX arguments, use `date-from-calendar' to chose date."
       (insert (format-time-string insert-date-format)))
      ((equal prefix '(4))
       (date-from-calendar))))
-  :config
-  (add-hook 'calendar-mode-hook 'sanityinc/no-trailing-whitespace))
+  :hook
+  (calendar-mode . sanityinc/no-trailing-whitespace))
 
 
 (provide 'init-calendar)

@@ -87,8 +87,7 @@
 
 
 (use-package indent-guide
-  :config
-  (add-hook 'prog-mode-hook 'indent-guide-mode)
+  :hook (prog-mode . indent-guide-mode)
   :diminish indent-guide-mode)
 
 
@@ -98,8 +97,7 @@
 
 
 (use-package rainbow-delimiters
-  :config
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)  )
+  :hook (prog-mode . rainbow-delimiters-mode)  )
 
 
 
@@ -126,8 +124,7 @@
 
 (use-package highlight-symbol
   :after org-mode
-  :config
-  (add-hook 'org-mode-hook 'highlight-symbol-nav-mode))
+  :hook (org-mode . highlight-symbol-nav-mode))
 
 (use-package highlight-symbol
   :diminish highlight-symbol-mode
@@ -354,8 +351,7 @@ With arg N, insert N newlines."
   :init
   (setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "M-s" "C-h"))
   :diminish guide-key-mode
-  :config
-  (add-hook 'after-init-hook 'guide-key-mode))
+  :hook (after-init . guide-key-mode))
 
 
 (provide 'init-editing-utils)

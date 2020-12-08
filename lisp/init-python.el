@@ -17,9 +17,10 @@
 (use-package pip-requirements)
 
 (use-package anaconda-mode
+  :hook
+  ((python-mode . anaconda-mode)
+   (python-mode . anaconda-eldoc-mode))
   :config
-  (add-hook 'python-mode-hook 'anaconda-mode)
-  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
   (use-package company-anaconda
     :after (company python-mode)
     :config
@@ -35,8 +36,7 @@
 ;;----------------------------------------------------------------------------
 (use-package flymake-python-pyflakes
   :after python-mode
-  :config
-  (add-hook 'python-mode-hook 'flymake-python-pyflakes-load))
+  :hook (python-mode . flymake-python-pyflakes-load))
 
 
 ;;----------------------------------------------------------------------------

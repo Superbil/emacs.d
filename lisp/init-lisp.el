@@ -5,9 +5,8 @@
 (use-package elisp-slime-nav
   :after elisp-mode
   :diminish
-  :config
-  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
-    (add-hook hook 'turn-on-elisp-slime-nav-mode)))
+  :hook ((emacs-lisp-mode . turn-on-elisp-slime-nav-mode)
+         (ielm-mode . turn-on-elisp-slime-nav-mode)))
 
 
 
@@ -67,9 +66,9 @@
 
   :bind (:map emacs-lisp-mode-map
               ("C-c C-z" . sanityinc/switch-to-ielm))
+  :hook (emacs-lisp-mode . sanityinc/maybe-set-bundled-elisp-readonly)
   :config
-  (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ELisp")))
-  (add-hook 'emacs-lisp-mode-hook 'sanityinc/maybe-set-bundled-elisp-readonly))
+  (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ELisp"))))
 
 (use-package ielm
   :ensure nil
@@ -106,9 +105,9 @@
 ;; Automatic byte compilation
 ;; ----------------------------------------------------------------------------
 (use-package auto-compile
-  :config
-  (add-hook 'after-init'hook 'auto-compile-on-save-mode)
-  (add-hook 'after-init'hook 'auto-compile-on-load-mode))
+  :hook
+  ((after-init . auto-compile-on-save-mode)
+   (after-init . auto-compile-on-load-mode)))
 
 ;; ----------------------------------------------------------------------------
 ;; Load .el if newer than corresponding .elc
@@ -117,8 +116,8 @@
 
 
 (use-package immortal-scratch
-  :config
-  (add-hook 'after-init-hook 'immortal-scratch-mode))
+  :hook
+  (after-init . immortal-scratch-mode))
 
 
 ;;; Support byte-compilation in a sub-process, as
@@ -264,8 +263,8 @@
 (add-hook 'emacs-lisp-mode-hook 'sanityinc/run-theme-mode-hooks-if-theme t)
 
 (use-package rainbow-mode
-  :config
-  (add-hook 'sanityinc/theme-mode-hook 'rainbow-mode))
+  :hook
+  (sanityinc/theme-mode . rainbow-mode))
 
 (use-package aggressive-indent
   :config
@@ -275,8 +274,8 @@
 
 
 (use-package highlight-quoted
-  :config
-  (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode))
+  :hook
+  (emacs-lisp-mode . highlight-quoted-mode))
 
 
 

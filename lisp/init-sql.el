@@ -32,21 +32,22 @@ Fix for the above hasn't been released as of Emacs 25.2."
     (when (eq sql-product 'postgres)
       (setq-local sql-prompt-regexp "^[[:alnum:]_]*=[#>] ")
       (setq-local sql-prompt-cont-regexp "^[[:alnum:]_]*[-(][#>] ")))
+  :hook
+  ((sql-interactive-mode . sanityinc/font-lock-everything-in-sql-interactive-mode)
+   (sql-interactive-mode . sanityinc/fix-postgres-prompt-regexp))
   :config
   ;; sql-mode pretty much requires your psql to be uncustomised from stock settings
   (push "--no-psqlrc" sql-postgres-options)
-
-  (add-hook 'sql-interactive-mode-hook 'sanityinc/font-lock-everything-in-sql-interactive-mode)
-  (add-hook 'sql-interactive-mode-hook 'sanityinc/fix-postgres-prompt-regexp)
 
   (use-package dash-at-point
     :preface
     (defun sanityinc/maybe-set-dash-db-docset ()
       (when (eq sql-product 'postgres)
         (set (make-local-variable 'dash-at-point-docset) "psql")))
+    :hook
+    ((sql-mode . sanityinc/maybe-set-dash-db-docset)
+     (sql-interactive-mode . sanityinc/maybe-set-dash-db-docset))
     :config
-    (add-hook 'sql-mode-hook 'sanityinc/maybe-set-dash-db-docset)
-    (add-hook 'sql-interactive-mode-hook 'sanityinc/maybe-set-dash-db-docset)
     (defadvice sql-set-product (after set-dash-docset activate)
       (sanityinc/maybe-set-dash-db-docset))))
 

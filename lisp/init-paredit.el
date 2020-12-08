@@ -11,9 +11,9 @@
       (local-set-key (kbd "RET") 'paredit-newline)))
 
   :diminish (paredit-mode . " Par")
-
+  :hook ((paredit-mode . maybe-map-paredit-newline))
   :config
-  (add-hook 'paredit-mode-hook 'maybe-map-paredit-newline)
+
 
   ;; Suppress certain paredit keybindings to avoid clashes, including
   ;; my global binding of M-?
@@ -46,9 +46,9 @@
 (use-package paredit-everywhere
   :bind (:map paredit-everywhere-mode-map ("M-s". nil))
   :after (prog-mode css-mode)
-  :config
-  (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
-  (add-hook 'css-mode-hook 'paredit-everywhere-mode))
+  :hook
+  ((prog-mode . paredit-everywhere-mode)
+   (css-mode . paredit-everywhere-mode)))
 
 
 (provide 'init-paredit)

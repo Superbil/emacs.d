@@ -89,7 +89,7 @@
 
 (use-package diff-hl
   :after dired
-  :config (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
+  :hook (dired-mode . diff-hl-dired-mode))
 
 (use-package dired-x
   :if *is-a-mac*

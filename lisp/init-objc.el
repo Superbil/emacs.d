@@ -22,8 +22,8 @@
   :preface
   (defun objc-keys ()
     (local-set-key (kbd "C-x p") 'objc-headline))
-  :config
-  (add-hook 'objc-mode-hook 'objc-keys))
+  :hook
+  (objc-mode . objc-keys))
 
 
 (provide 'init-objc)

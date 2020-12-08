@@ -7,9 +7,10 @@
 ;;; Code:
 
 (use-package diff-hl
-  :config
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  (add-hook 'after-init-hook 'global-diff-hl-mode))
+  :after magit
+  :hook
+  ((magit-post-refresh . diff-hl-magit-post-refresh)
+   (after-init . global-diff-hl-mode)))
 
 
 (provide 'init-vc)

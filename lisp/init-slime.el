@@ -18,6 +18,7 @@
   (defun sanityinc/slime-setup ()
     "Mode setup function for slime lisp buffers."
     (set-up-slime-hippie-expand))
+  :hook (slime-mode . sanityinc/slime-setup)
   :config
   ;; package.el compiles the contrib subdir, but the compilation order
   ;; causes problems, so we remove the .elc files there. See
@@ -28,8 +29,7 @@
   (use-package slime-company
     :after slime-company
     :config
-    (slime-setup (append '(slime-repl slime-fuzzy) extras)))
-  (add-hook 'slime-mode-hook 'sanityinc/slime-setup))
+    (slime-setup (append '(slime-repl slime-fuzzy) extras))))
 
 
 ;;; REPL
@@ -46,10 +46,10 @@
     (sanityinc/lisp-setup)
     (set-up-slime-hippie-expand)
     (setq show-trailing-whitespace nil))
+  :hook (slime-repl-mode . sanityinc/slime-repl-setup)
   :config
   ;; Stop SLIME's REPL from grabbing DEL, which is annoying when backspacing over a '('
-  (define-key slime-repl-mode-map (read-kbd-macro paredit-backward-delete-key) nil)
-  (add-hook 'slime-repl-mode-hook 'sanityinc/slime-repl-setup))
+  (define-key slime-repl-mode-map (read-kbd-macro paredit-backward-delete-key) nil))
 
 
 (provide 'init-slime)

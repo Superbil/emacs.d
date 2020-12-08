@@ -15,17 +15,16 @@
     "Suppress highlight-symbol for do/end etc."
     (set (make-local-variable 'highlight-symbol-ignore-list)
          (list (concat "\\_<" (regexp-opt '("do" "end")) "\\_>"))))
-
+  :hook
+  ((ruby-mode . subword-mode)
+   (ruby-mode . sanityinc/suppress-ruby-mode-keyword-highlights))
   :config
   ;; Stupidly the non-bundled ruby-mode isn't a derived mode of
   ;; prog-mode: we run the latter's hooks anyway in that case.
   (add-hook 'ruby-mode-hook
             (lambda ()
               (unless (derived-mode-p 'prog-mode)
-                (run-hooks 'prog-mode-hook))))
-
-  (add-hook 'ruby-mode-hook 'subword-mode)
-  (add-hook 'ruby-mode-hook 'sanityinc/suppress-ruby-mode-keyword-highlights))
+                (run-hooks 'prog-mode-hook)))))
 
 (use-package page-break-lines
   :config

@@ -25,8 +25,7 @@
   :init
   (setq session-save-file (expand-file-name ".session" user-emacs-directory))
   (setq session-name-disable-regexp "\\(?:\\`'/tmp\\|\\.git/[A-Z_]+\\'\\)")
-  :config
-  (add-hook 'after-init-hook 'session-initialize))
+  :hook (after-init . session-initialize))
 
 ;; save a bunch of variables to the desktop file
 ;; for lists specify the len of the maximal saved data also

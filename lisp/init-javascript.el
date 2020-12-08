@@ -44,9 +44,9 @@
   :config
   (use-package flycheck
     :after flycheck-get-checker-for-buffer
-    :config
-    (add-hook 'js-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive)
-    (add-hook 'js2-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive))
+    :hook
+    ((js-mode . sanityinc/enable-js2-checks-if-flycheck-inactive)
+     (js2-mode . sanityinc/enable-js2-checks-if-flycheck-inactive)))
 
   (add-hook 'js2-mode-hook (lambda () (setq mode-name "JS2")))
   (js2-imenu-extras-setup)

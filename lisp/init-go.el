@@ -19,8 +19,7 @@
   :init
   (when (locate-file "goimports" exec-path)
     (setq gofmt-command "goimports"))
-  :config
-  (add-hook 'before-save-hook 'gofmt-before-save))
+  :hook (before-save . gofmt-before-save))
 
 (use-package flymake-go
   :after go-mode)
@@ -31,8 +30,7 @@
 (use-package go-guru
   :if (locate-file "guru" exec-path)
   :after go-mode
-  :config
-  (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
+  :hook (go-mode . go-guru-hl-identifier-mode))
 
 
 (provide 'init-go)

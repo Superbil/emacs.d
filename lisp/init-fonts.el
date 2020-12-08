@@ -8,8 +8,7 @@
 (use-package default-text-scale
   :bind (("C-M-=" . default-text-scale-increase)
          ("C-M--" . default-text-scale-decrease))
-  :config
-  (add-hook 'after-init-hook 'default-text-scale-mode))
+  :hook (after-init . default-text-scale-mode))
 
 
 (defun sanityinc/maybe-adjust-visual-fill-column ()
