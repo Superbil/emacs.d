@@ -11,7 +11,8 @@
 (use-package elpy)
 
 ;; Emacs IPython Notebook
-(use-package ein)
+(use-package ein
+  :commands (ein:notebooklist-open))
 
 (use-package pip-requirements)
 
