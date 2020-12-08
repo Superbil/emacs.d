@@ -28,10 +28,11 @@
                 magit-diff-highlight-trailing nil
                 magit-diff-paint-whitespace nil)
 
-  :config
-  (add-hook 'magit-popup-mode-hook 'sanityinc/no-trailing-whitespace)
-  (add-hook 'after-save-hook 'magit-after-save-refresh-status)
+  :hook
+  ((magit-popup-mode . sanityinc/no-trailing-whitespace)
+   (after-save . magit-after-save-refresh-status))
 
+  :config
   (when *is-a-mac*
     (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))
 
@@ -52,8 +53,7 @@
   :after magit)
 
 (use-package git-commit
-  :config
-  (add-hook 'git-commit-mode-hook 'goto-address-mode))
+  :hook (git-commit-mode . goto-address-mode))
 
 
 ;; Convenient binding for vc-git-grep
@@ -64,8 +64,7 @@
 
 ;;; git-svn support
 (use-package magit-svn
-  :config
-  (add-hook 'magit-mode-hook (lambda () (magit-svn-mode))))
+  :hook (magit-mode . magit-svn-mode))
 
 (use-package compile
   :ensure nil
@@ -100,10 +99,7 @@
   :bind (:map magit-gitflow-mode-map
               ("C-f" . nil)
               ("C-c C-f" . magit-gitflow-popup))
-  :config
-  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
-;;; Workaround for magit-gitflow won't auto load
-(add-hook 'after-init-hook (lambda () (require 'magit-gitflow)))
+  :hook (magit-mode . turn-on-magit-gitflow))
 
 
 (provide 'init-git)
