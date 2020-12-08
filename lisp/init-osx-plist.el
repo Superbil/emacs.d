@@ -1,3 +1,7 @@
+;;; init-osx-plist.el --- macOSX plist file  -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;; Allow editing of binary .plist files.
 (when *is-a-mac*
   (defun visit-bplist ()
@@ -16,3 +20,4 @@
 
 
 (provide 'init-osx-plist)
+;;; init-osx-plist.el ends here

@@ -1,3 +1,7 @@
+;;; init-osx.el --- Setup for macOSX -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (defun superbil/osx-open-app (app &optional app-args)
   "Use OSX open `APP' with APP-ARGS or not."
   (shell-command
@@ -33,3 +37,4 @@
 
 
 (provide 'init-osx)
+;;; init-osx.el ends here

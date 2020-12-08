@@ -1,4 +1,9 @@
+;;; init-calendar.el --- Custom about calendar -*- lexical-binding: t -*-
+;;; Commentary:
+
 ;;; Copy from https://gist.github.com/kanru/1a7c4dc58fda760b4bb4
+
+;;; Code:
 
 (eval-when-compile (require 'cl-lib))
 

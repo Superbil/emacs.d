@@ -1,3 +1,7 @@
+;;; init-games.el --- Games -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package swimmers
   :commands (swimming swimming-in-sea)
   :ensure nil
@@ -12,3 +16,4 @@
 
 
 (provide 'init-games)
+;;; init-games.el ends here

@@ -1,4 +1,7 @@
-;;; start edit-server
+;;; init-client.el --- Edit server for emacs -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package edit-server
   :commands edit-server-start
   :config
@@ -12,3 +15,4 @@
 
 
 (provide 'init-client)
+;;; init-client.el ends here

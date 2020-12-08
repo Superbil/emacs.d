@@ -1,3 +1,7 @@
+;;; init-eshell.el --- Emacs shell -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package eshell
   :bind (("C-x m" . eshell)
          ;; Change default mail to "C-x M"
@@ -40,3 +44,4 @@
 
 
 (provide 'init-eshell)
+;;; init-eshell.el ends here

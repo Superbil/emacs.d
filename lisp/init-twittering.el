@@ -1,3 +1,7 @@
+;;; init-twittering --- Twitter -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package twittering-mode
   :commands twit
   :init
@@ -30,3 +34,4 @@
 
 
 (provide 'init-twittering)
+;;; init-twittering.el ends here

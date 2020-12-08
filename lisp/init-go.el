@@ -1,3 +1,7 @@
+;;; init-go.el --- Go language  -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;;; must install those tootls
 ;;; go get -u golang.org/x/tools/cmd/...
 ;;; go get -u github.com/rogpeppe/godef/...
@@ -32,3 +36,4 @@
 
 
 (provide 'init-go)
+;;; init-go.el ends here
