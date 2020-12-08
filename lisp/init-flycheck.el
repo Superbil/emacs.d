@@ -19,12 +19,14 @@
   :config
   (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
 
-  (require 'org-lint)
-  (flycheck-define-generic-checker 'org-lint
-    "Syntax checker for org-lint."
-    :start 'flycheck-org-lint-start
-    :modes '(org-mode))
-  (add-to-list 'flycheck-checkers 'org-lint))
+  (use-package org-lint
+    :ensure nil
+    :config
+    (flycheck-define-generic-checker 'org-lint
+      "Syntax checker for org-lint."
+      :start 'flycheck-org-lint-start
+      :modes '(org-mode))
+    (add-to-list 'flycheck-checkers 'org-lint)))
 
 
 (provide 'init-flycheck)
