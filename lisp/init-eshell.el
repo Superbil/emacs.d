@@ -17,6 +17,15 @@
         eshell-cmpl-ignore-case t
         eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'")
   :preface
+  (defun eshell/fix-ls ()
+    "The 'ls' executable requires the GNU version on the Mac"
+    (let ((ls (if (file-exists-p "/usr/local/bin/gls")
+                  "/usr/local/bin/gls"
+                "/bin/ls")))
+      (eshell/alias "ls" (concat ls " -G --color=always"))
+      (eshell/alias "ll" (concat ls " -AlohG --color=always"))))
+
+  :hook (eshell-mode . eshell/fix-ls)
 
   :config
   ;; use emacs in eshell
