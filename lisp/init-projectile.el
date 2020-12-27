@@ -11,18 +11,18 @@
     "Switch to a project we have currently opened.
       Invokes `projectile-vc' after switch to project"
     (interactive "P")
-    (-if-let* ((projects (projectile-relevant-open-projects))
-               (projectile-switch-project-action 'projectile-vc))
-        (projectile-switch-project-by-name
-         (projectile-completing-read "Switch to open project vc: " projects)
-         arg)
-      (error "There are no open projects")))
+    (let* ((projects (projectile-relevant-open-projects))
+           (projectile-switch-project-action 'projectile-vc)
+           (projectile-name (projectile-completing-read "Switch to open project vc: " projects)))
+      (when projectile-name
+        (projectile-switch-project-by-name projectile-name arg))))
 
   (defun projectile-xcode-workspace ()
     "Open workspace with Xcode at the root of the project."
     (interactive)
     (projectile-with-default-dir (projectile-project-root)
       (open-xcode-workspace (projectile-project-root))))
+
   :config
   (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '(".DS_Store" ".gitignore")))
   (setq projectile-mode-line-prefix " 🎛️")
