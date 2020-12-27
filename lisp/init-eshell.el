@@ -25,15 +25,15 @@
       (eshell/alias "ls" (concat ls " -G --color=always"))
       (eshell/alias "ll" (concat ls " -AlohG --color=always"))))
 
-  :hook (eshell-mode . eshell/fix-ls)
+  (defun eshell/editor-use-emacs ()
+    "Use emacs in eshell."
+    (eshell/export "EDITOR=emacsclient -n")
+    (eshell/export "VISUAL=emacsclient -n"))
+
+  :hook ((eshell-mode . eshell/fix-ls)
+         (eshell-mode . eshell/editor-use-emacs))
 
   :config
-  ;; use emacs in eshell
-  (add-hook 'eshell-mode-hook
-            '(lambda nil
-               (eshell/export "EDITOR=emacsclient -n")
-               (eshell/export "VISUAL=emacsclient -n")))
-
   (use-package esh-mode
     :ensure nil
     :defer t
