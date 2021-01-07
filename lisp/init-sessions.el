@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(setq history-delete-duplicates t)
+
 (use-package desktop
   :ensure nil
   :init
