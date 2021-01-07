@@ -11,7 +11,7 @@
   (fullframe docker-containers tablist-quit))
 
 (use-package dockerfile-mode
-  :mode ("Dockerfile"))
+  :mode ("Dockerfile\\'"))
 
 (use-package docker-compose-mode)
 
