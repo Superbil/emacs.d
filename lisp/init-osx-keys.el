@@ -3,7 +3,7 @@
 ;;; Code:
 
 (setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'none)
+(setq mac-option-modifier nil)
 (setq-default default-input-method "MacOSX")
 ;; Make mouse wheel / trackpad scrolling less jerky
 (setq mouse-wheel-scroll-amount '(1
@@ -13,7 +13,8 @@
   (dolist (direction '("right" "left"))
     (global-set-key (read-kbd-macro (concat "<" multiple "wheel-" direction ">")) 'ignore)))
 
-(setq mac-pass-command-to-system nil)
+(setq mac-pass-command-to-system t)
+;; (global-set-key (kbd "C-M-<SPC>") 'ns-spi-service-call)
 
 (use-package nxml-mode
   :ensure nil
