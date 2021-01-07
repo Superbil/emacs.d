@@ -31,9 +31,13 @@
       (superbil/osx-open (car workspace)))))
 
 (use-package osx-trash
-  :if (eq system-type 'darwin)
+  :if *is-a-mac*
   :init
   (setq delete-by-moving-to-trash t))
+
+(use-package reveal-in-osx-finder
+  :if *is-a-mac*
+  :commands reveal-in-osx-finder)
 
 
 (provide 'init-osx)
