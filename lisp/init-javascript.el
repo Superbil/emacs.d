@@ -75,11 +75,13 @@
     (setq-default xref-js2-search-program 'rg))
 
   (use-package js
-    :bind ("M-." . js-mode-map)
+    :bind (:map js-mode-map
+                ("M-." . js-mode-map))
     :hook (js-mode-hook . sanityinc/enable-xref-js2))
 
   (use-package js2-mode
-    :bind ("M-." . js2-mode-map)
+    :bind (:map js2-mode-map
+                ("M-." . js2-mode-map))
     :hook (js2-mode-hook . sanityinc/enable-xref-js2)))
 
 
