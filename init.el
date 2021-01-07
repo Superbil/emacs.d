@@ -59,7 +59,8 @@
 (require 'init-xterm)
 (require 'init-term)
 (require 'init-themes)
-(require 'init-osx-keys)
+(when *is-a-mac*
+  (require 'init-osx-keys))
 (require 'init-gui-frames)
 (require 'init-modeline)
 (require 'init-dired)
