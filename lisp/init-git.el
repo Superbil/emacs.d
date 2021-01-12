@@ -21,7 +21,10 @@
   ;; Hint: customize `magit-repo-dirs' so that you can use C-u C-x g to
   ;; quickly open magit on any one of your projects.
   (("C-x g" . magit-status)
-   ("C-x M-g" . magit-dispatch-popup))
+   ("C-x M-g" . magit-dispatch-popup)
+   :map magit-mode-map
+   ("M-w" . whole-line-or-region-kill-ring-save))
+
   :init
   (setq-default magit-diff-refine-hunk nil
                 magit-refresh-status-buffer nil
@@ -41,8 +44,6 @@
     :bind
     (:map magit-status-mode-map
           ("C-M-<up>" . magit-section-up)))
-
-  (bind-key "M-w" 'whole-line-or-region-kill-ring-save magit-mode-map)
 
   (fullframe magit-status magit-mode-quit-window))
 
