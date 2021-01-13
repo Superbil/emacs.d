@@ -226,13 +226,13 @@
 ;;----------------------------------------------------------------------------
 (use-package move-dup
   :bind
-  (([M-up] . md/move-lines-up)
-   ([M-down] . md/move-lines-down)
-   ([M-S-up] . md/move-lines-up)
-   ([M-S-down] . md/move-lines-down)
+  (([M-up] . md-move-lines-up)
+   ([M-down] . md-move-lines-down)
+   ([M-S-up] . md-move-lines-up)
+   ([M-S-down] . md-move-lines-down)
 
-   ("C-c d" . md/duplicate-down)
-   ("C-c D" . md/duplicate-up)))
+   ("C-c d" . md-duplicate-down)
+   ("C-c D" . md-duplicate-up)))
 
 ;;----------------------------------------------------------------------------
 ;; Fix backward-up-list to understand quotes, see http://bit.ly/h7mdIL
