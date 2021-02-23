@@ -353,6 +353,11 @@ With arg N, insert N newlines."
   :diminish guide-key-mode
   :hook (after-init . guide-key-mode))
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1)
+  :diminish editorconfig-mode)
+
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
