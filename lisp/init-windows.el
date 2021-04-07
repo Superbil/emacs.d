@@ -15,7 +15,9 @@
 (use-package winner
   :ensure nil
   :bind
-  (("C-x 1" . sanityinc/toggle-delete-other-windows))
+  (("C-x 1" . sanityinc/toggle-delete-other-windows)
+   ("C-c h" . winner-undo)
+   ("C-c n" . winner-redo))
   :preface
   (defun sanityinc/toggle-delete-other-windows ()
     "Delete other windows in frame if any, or restore previous window config."
