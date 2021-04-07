@@ -25,14 +25,14 @@
 
 ;; Use intero for completion and flycheck
 
-(use-package intero
-  :after (haskell-mode eldoc-mode)
-  :hook (haskell-mode . eldoc-mode)
-  :config
-  (intro-global-mode)
-  (with-eval-after-load 'flycheck
-    (flycheck-add-next-checker 'intero
-                               '(warning . haskell-hlint))))
+;; (use-package intero
+;;   :after (haskell-mode eldoc-mode)
+;;   :hook (haskell-mode . eldoc-mode)
+;;   :config
+;;   (intro-global-mode)
+;;   (with-eval-after-load 'flycheck
+;;     (flycheck-add-next-checker 'intero
+;;                                '(warning . haskell-hlint))))
 
 
 
