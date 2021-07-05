@@ -64,25 +64,25 @@
 
 ;; Javascript nests {} and () a lot, so I find this helpful
 
-(use-package xref-js2
-  :if (or (executable-find "rg") (executable-find "ag"))
-  :preface
-  (defun sanityinc/enable-xref-js2 ()
-    (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))
+;; (use-package xref-js2
+;;   :if (or (executable-find "rg") (executable-find "ag"))
+;;   :preface
+;;   (defun sanityinc/enable-xref-js2 ()
+;;     (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))
 
-  :config
-  (when (executable-find "rg")
-    (setq-default xref-js2-search-program 'rg))
+;;   :config
+;;   (when (executable-find "rg")
+;;     (setq-default xref-js2-search-program 'rg))
 
-  (use-package js
-    :bind (:map js-mode-map
-                ("M-." . js-mode-map))
-    :hook (js-mode-hook . sanityinc/enable-xref-js2))
+;;   (use-package js
+;;     :bind (:map js-mode-map
+;;                 ("M-." . js-mode-map))
+;;     :hook (js-mode-hook . sanityinc/enable-xref-js2))
 
-  (use-package js2-mode
-    :bind (:map js2-mode-map
-                ("M-." . js2-mode-map))
-    :hook (js2-mode-hook . sanityinc/enable-xref-js2)))
+;;   (use-package js2-mode
+;;     :bind (:map js2-mode-map
+;;                 ("M-." . js2-mode-map))
+;;     :hook (js2-mode-hook . sanityinc/enable-xref-js2)))
 
 
 
