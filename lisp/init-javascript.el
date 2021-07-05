@@ -175,7 +175,8 @@
   :after (tide flycheck)
   :mode ("\\.jsx\\'")
   :config
-  (flycheck-select-checker 'tsx-tide))
+  ;; (flycheck-select-checker 'tsx-tide)
+  )
 
 ;;; For typescript
 (use-package rjsx-mode
