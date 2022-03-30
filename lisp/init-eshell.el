@@ -30,7 +30,7 @@
     (eshell/export "EDITOR=emacsclient -n")
     (eshell/export "VISUAL=emacsclient -n"))
 
-  :hook ((eshell-mode . eshell/fix-ls)
+  :hook (;; (eshell-mode . eshell/fix-ls)
          (eshell-mode . eshell/editor-use-emacs))
 
   :config

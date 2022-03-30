@@ -5,9 +5,9 @@
 (setq-default dired-dwim-target t)
 
 ;; Prefer g-prefixed coreutils version of standard utilities when available
-(let ((gls (executable-find "gls")))
-  (when gls (setq insert-directory-program gls
-                  dired-listing-switches "-aBhl")))
+;; (let ((gls (executable-find "gls")))
+;;   (when gls (setq insert-directory-program gls
+;;                   dired-listing-switches "-aBhl")))
 
 (defcustom dired-open-external-program
   "open"
