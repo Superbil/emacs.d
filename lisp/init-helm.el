@@ -74,7 +74,7 @@
    '(helm-gtags-auto-update t)
    '(helm-gtags-prefix-key "C-t")))
 
-(use-package helm-gitignore)
+;; (use-package helm-gitignore)
 
 (use-package helm-tramp)
 
