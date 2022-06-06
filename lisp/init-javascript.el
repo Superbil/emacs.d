@@ -3,7 +3,7 @@
 ;;; Code:
 
 (defcustom preferred-javascript-mode
-  (first (remove-if-not #'fboundp '(js2-mode js-mode)))
+  (first (cl-remove-if-not #'fboundp '(js2-mode js-mode)))
   "Javascript mode to use for .js files."
   :type 'symbol
   :group 'programming
@@ -15,9 +15,9 @@
 ;; may be in an arbitrary order
 (eval-when-compile (require 'cl-lib))
 (setq auto-mode-alist (cons `("\\.\\(js\\|es6\\)\\(\\.erb\\)?\\'" . ,preferred-javascript-mode)
-                            (loop for entry in auto-mode-alist
-                                  unless (eq preferred-javascript-mode (cdr entry))
-                                  collect entry)))
+                            (cl-loop for entry in auto-mode-alist
+                                     unless (eq preferred-javascript-mode (cdr entry))
+                                     collect entry)))
 
 
 ;; js2-mode
