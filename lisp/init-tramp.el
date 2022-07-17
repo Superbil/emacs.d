@@ -18,7 +18,7 @@
                        (tramp-file-name-user vec)
                        (tramp-file-name-host vec))))
           (concat "/sudo:root@localhost:" tempfile))
-      ;; For new version tramp
+      ;; For new version tramp, emacs 26.X+
       (if (file-remote-p tempfile)
           (let ((vec (tramp-dissect-file-name tempfile)))
             (tramp-make-tramp-file-name
@@ -31,7 +31,7 @@
              (format "ssh:%s@%s|"
                      (tramp-file-name-user vec)
                      (tramp-file-name-host vec))))
-        (concat "/sudo:root@localhost:" tempfile))))
+        (concat "/sudo::" tempfile))))
 
   (defun sudo-edit-current-file ()
     (interactive)
