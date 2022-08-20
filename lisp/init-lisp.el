@@ -198,10 +198,10 @@
          ("\\.emacs-project\\'" . emacs-lisp-mode)
          ("archive-contents\\'" . emacs-lisp-mode)))
 
-(use-package cl-lib-highlight
-  :after lisp-mode
-  :config
-  (cl-lib-highlight-initialize))
+;; (use-package cl-lib-highlight
+;;   :after lisp-mode
+;;   :config
+;;   (cl-lib-highlight-initialize))
 
 ;; ----------------------------------------------------------------------------
 ;; Delete .elc files when reverting the .el from VC or magit
