@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh -f
+#!/usr/bin/env zsh -f
 #
 # sync.sh
 # Author: superbil
