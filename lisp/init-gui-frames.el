@@ -54,13 +54,6 @@
   ;; Hint: Customize `ns-use-native-fullscreen'
   (global-set-key (kbd "M-ƒ") 'toggle-frame-fullscreen))
 
-(use-package seethru
-  :config
-  (global-set-key (kbd "M-C-8") (lambda () (interactive) (seethru-relative -2)))
-  (global-set-key (kbd "M-C-9") (lambda () (interactive) (seethru-relative 2)))
-  (global-set-key (kbd "M-C-0") (lambda () (interactive) (seethru 100))))
-
-
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name))
