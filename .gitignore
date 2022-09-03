@@ -52,6 +52,7 @@ gnus/
 /.uptimes.el
 /rake.cache
 /lisp/init*-local.el
+eln-cache/
 
 ### OSX ###
 *.DS_Store
