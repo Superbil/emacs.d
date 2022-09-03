@@ -322,5 +322,9 @@
 (use-package cask-mode)
 
 
+
+(global-set-key (kbd "<f5>") 'elisp-index-search)
+
+
 (provide 'init-lisp)
 ;;; init-lisp.el ends here
