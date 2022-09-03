@@ -8,9 +8,8 @@
 ;; TODO: link commits from vc-log to magit-show-commit
 ;; TODO: smerge-mode
 (use-package git-blamed)
-;; (use-package gitignore-mode)
-;; (use-package gitconfig-mode
-;;   :mode ".gitconfig-local\\'")
+(use-package git-modes
+  :mode (".gitconfig-local\\'" . gitconfig-mode))
 (use-package git-timemachine)
 (use-package git-attr)
 (use-package git-link)
