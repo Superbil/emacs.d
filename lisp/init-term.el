@@ -2,11 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package multi-term
-  :bind (("<f10>" . multi-term))
-  :config
-  (setq-when-file-existed multi-term-program (executable-find "zsh")))
-
 ;; Non-zero values for `line-spacing' can mess up ansi-term and co,
 ;; so we zero it explicitly in those cases.
 (use-package term
