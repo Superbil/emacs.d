@@ -9,6 +9,8 @@
   :hook (term-mode . (lambda ()
                        (setq line-spacing 0))))
 
+(use-package vterm
+  :commands vterm)
 
 (provide 'init-term)
 ;;; init-term.el ends here
