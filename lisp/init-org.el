@@ -4,7 +4,7 @@
 
 (use-package org
   :pin org
-  :bind (("C-c l" . org-store-link)
+  :bind (;; ("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
          :map org-mode-map
          ("C-M-<up>" . org-up-element))
