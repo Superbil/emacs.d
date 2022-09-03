@@ -100,6 +100,12 @@
               ("C-c C-f" . magit-gitflow-popup))
   :hook (magit-mode . turn-on-magit-gitflow))
 
+
+(use-package magit-delta
+  :if (executable-find "git-delta")
+  :after magit
+  :hook (magit-mode . magit-delta-mode))
+
 
 (provide 'init-git)
 ;;; init-git.el ends here
