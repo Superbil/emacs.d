@@ -14,6 +14,7 @@
 ;;----------------------------------------------------------------------------
 (use-package winner
   :ensure nil
+  :init (setq winner-dont-bind-my-keys t)
   :bind
   (("C-x 1" . sanityinc/toggle-delete-other-windows)
    ("C-c h" . winner-undo)
