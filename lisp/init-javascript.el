@@ -2,28 +2,28 @@
 ;;; Commentary:
 ;;; Code:
 
-(defcustom preferred-javascript-mode
-  (first (cl-remove-if-not #'fboundp '(js2-mode js-mode)))
-  "Javascript mode to use for .js files."
-  :type 'symbol
-  :group 'programming
-  :options '(js2-mode js-mode))
-
 (defconst preferred-javascript-indent-level 2)
 
 ;; Need to first remove from list if present, since elpa adds entries too, which
 ;; may be in an arbitrary order
 (eval-when-compile (require 'cl-lib))
-(setq auto-mode-alist (cons `("\\.\\(js\\|es6\\)\\(\\.erb\\)?\\'" . ,preferred-javascript-mode)
-                            (cl-loop for entry in auto-mode-alist
-                                     unless (eq preferred-javascript-mode (cdr entry))
-                                     collect entry)))
-
 
 ;; js2-mode
-
 (use-package js2-mode
+  :after j2-mode
   :init
+  (defcustom preferred-javascript-mode
+    (first (cl-remove-if-not #'fboundp '(js2-mode js-mode)))
+    "Javascript mode to use for .js files."
+    :type 'symbol
+    :group 'programming
+    :options '(js2-mode js-mode))
+
+  (setq auto-mode-alist (cons `("\\.\\(js\\|es6\\)\\(\\.erb\\)?\\'" . ,preferred-javascript-mode)
+                              (cl-loop for entry in auto-mode-alist
+                                       unless (eq preferred-javascript-mode (cdr entry))
+                                       collect entry)))
+
   ;; Change some defaults: customize them to override
   (setq-default js2-basic-offset preferred-javascript-mode
                 js2-bounce-indent-p nil)
