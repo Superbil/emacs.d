@@ -10,6 +10,7 @@
                        (setq line-spacing 0))))
 
 (use-package vterm
+  :bind (:map vterm-mode-map ("C-y" . vterm-yank))
   :commands vterm)
 
 (provide 'init-term)
