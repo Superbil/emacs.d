@@ -3,6 +3,19 @@
   :init
   ;;; Use rsync is quickly or just use ssh
   (setq tramp-default-method "rsync")
+  ;;; Setup gcp ssh
+  ;; https://gist.github.com/scjody/287f8ca88d0055b7da9969357b762e7f
+  (add-to-list 'tramp-methods
+               '("gssh"
+                 (tramp-login-program        "gcloud compute ssh")
+                 (tramp-login-args           (("%h")))
+                 (tramp-async-args           (("-q")))
+                 (tramp-remote-shell         "/bin/sh")
+                 (tramp-remote-shell-args    ("-c"))
+                 (tramp-gw-args              (("-o" "GlobalKnownHostsFile=/dev/null")
+                                              ("-o" "UserKnownHostsFile=/dev/null")
+                                              ("-o" "StrictHostKeyChecking=no")))
+                 (tramp-default-port         22)))
   :bind (("C-c s u" . sudo-edit-current-file))
   :config
   (defun prepare-tramp-sudo-string (tempfile)
