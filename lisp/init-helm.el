@@ -31,8 +31,8 @@
   (helm-mode 1))
 
 (use-package helm-projectile
-  :after (projectile-mode)
-  :bind ("M-t" . helm-projectile-find-file)
+  :after projectile-mode
+  ;; :bind ("M-t" . helm-projectile-find-file)
   :config
   (helm-projectile-on))
 
