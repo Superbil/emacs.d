@@ -16,7 +16,8 @@
         (goto-char (point-max)) (previous-line 1))
       (xml-mode)
       (set-buffer-modified-p nil)
-      (setq buffer-undo-list nil))))
+      (setq buffer-undo-list nil)))
+  (defalias 'read-bplist 'visit-bplist))
 
 
 (provide 'init-osx-plist)
