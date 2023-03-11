@@ -6,8 +6,9 @@
   :after exec-path-from-shell
   :init
   (setq exec-path-from-shell-variables
-        '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "GOPATH"))
+        '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "GOPATH" "ASDF_DIR"))
   :config
+  (exec-path-from-shell-copy-env "PATH")
   (exec-path-from-shell-initialize))
 
 ;; Emacs cask seems to depend on the EMACS environment variable being set to the binary path of emacs.
