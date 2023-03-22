@@ -112,7 +112,9 @@
 (use-package undo-tree
   :config
   (global-undo-tree-mode)
-  :diminish undo-tree-mode)
+  :diminish undo-tree-mode
+  :config
+  (setq undo-tree-history-directory-alist '((".*" . "~/.emacs.d/undo"))))
 
 
 (use-package highlight-symbol
