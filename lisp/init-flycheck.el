@@ -26,7 +26,13 @@
       "Syntax checker for org-lint."
       :start 'flycheck-org-lint-start
       :modes '(org-mode))
-    (add-to-list 'flycheck-checkers 'org-lint)))
+    (add-to-list 'flycheck-checkers 'org-lint))
+
+  (use-package flycheck-eglot
+    :after (flycheck eglot)
+    :config
+    (global-flycheck-eglot-mode 1))
+  )
 
 
 (provide 'init-flycheck)
