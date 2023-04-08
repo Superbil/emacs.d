@@ -8,6 +8,7 @@
          ("C-x M" . compose-mail))
   :ensure nil
   :init
+  (setq eshell-directory-name (concat user-emacs-directory  "eshell/"))
   ;; http://sakito.jp/emacs/emacsshell.html
   (setq system-uses-terminfo nil
         eshell-ls-exclude-regexp "^\\(:2e\\|__MACOSX\\)"
