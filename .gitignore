@@ -83,3 +83,4 @@ Temporary Items
 *.sql
 # Ignore
 *.pem
+/elpy
