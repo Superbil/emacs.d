@@ -16,6 +16,8 @@
                                               ("-o" "UserKnownHostsFile=/dev/null")
                                               ("-o" "StrictHostKeyChecking=no")))
                  (tramp-default-port         22)))
+  ;; Add homebrew new bin path for find remote command
+  (add-to-list 'tramp-remote-path "/opt/homebrew/bin")
   :bind (("C-c s u" . sudo-edit-current-file))
   :config
   (defun prepare-tramp-sudo-string (tempfile)
