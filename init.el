@@ -132,7 +132,7 @@
 (require 'init-calendar)
 (require 'init-folding)
 (require 'init-dash)
-(require 'init-ledger)
+;; (require 'init-ledger)
 (require 'init-projectile)
 ;; (require 'init-twittering)
 (require 'init-games)
