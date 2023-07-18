@@ -26,9 +26,11 @@
   :config
   ;; Auto-discovery is slow to do by default. Better to update the list
   ;; when you need to (`projectile-discover-projects-in-search-path').
-  (setq projectile-auto-discover nil)
-  (setq projectile-globally-ignored-files (append projectile-globally-ignored-files '(".DS_Store" ".gitignore")))
-  (setq projectile-mode-line-prefix " 🎛️")
+  (setq projectile-auto-discover nil
+        projectile-mode-line-prefix " 🎛️"
+        projectile-globally-ignored-files (append projectile-globally-ignored-files '(".DS_Store" ".gitignore"))
+        projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o"))
+
 
   (fullframe projectile-switch-open-vc magit-mode-quit-window)
 
