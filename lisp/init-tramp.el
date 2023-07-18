@@ -16,8 +16,6 @@
                                               ("-o" "UserKnownHostsFile=/dev/null")
                                               ("-o" "StrictHostKeyChecking=no")))
                  (tramp-default-port         22)))
-  ;; Add homebrew new bin path for find remote command
-  (add-to-list 'tramp-remote-path "/opt/homebrew/bin")
   :bind (("C-c s u" . sudo-edit-current-file))
   :config
   (defun prepare-tramp-sudo-string (tempfile)
@@ -70,7 +68,9 @@
   ;; Let tramp quicky
   (setq make-backup-files nil)
   (setq create-lockfiles nil)
-  (setq tramp-auto-save-directory "/tmp"))
+  (setq tramp-auto-save-directory "/tmp")
+  ;; Add homebrew new bin path for find remote command
+  (add-to-list 'tramp-remote-path "/opt/homebrew/bin"))
 
 
 (use-package helm-tramp
