@@ -348,11 +348,17 @@ With arg N, insert N newlines."
   (hes-mode))
 
 
-(use-package guide-key
+(use-package which-key
+  :hook (after-init . which-key-mode)
   :init
-  (setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "M-s" "C-h"))
-  :diminish guide-key-mode
-  :hook (after-init . guide-key-mode))
+  (setq which-key-sort-order #'which-key-key-order-alpha
+        which-key-sort-uppercase-first nil
+        which-key-add-column-padding 1
+        which-key-max-display-columns nil
+        which-key-min-display-lines 6
+        which-key-side-window-slot -10)
+  :config
+  (put 'which-key-replacement-alist 'initial-value which-key-replacement-alist))
 
 (use-package editorconfig
   :config

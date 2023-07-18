@@ -78,9 +78,6 @@
 ;;     (global-dired-hide-details-mode -1))
 ;;   (setq dired-recursive-deletes 'top)
 
-;;   (add-hook 'dired-mode-hook
-;;             (lambda () (guide-key/add-local-guide-key-sequence "%"))))
-
 
 (use-package diff-hl
   :after dired
