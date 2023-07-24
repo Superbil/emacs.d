@@ -42,7 +42,7 @@
 (use-package try)
 
 (use-package diminish)
-(require 'bind-key)
+(use-package bind-key)
 
 
 (use-package fullframe
