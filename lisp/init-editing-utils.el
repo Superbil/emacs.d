@@ -112,7 +112,8 @@
 (use-package undo-tree
   :diminish undo-tree-mode
   :config
-  (setq undo-tree-history-directory-alist '((".*" . "~/.emacs.d/undo")))
+  (setq undo-tree-history-directory-alist
+        '((".*" . ,(expand-file-name "undo/" user-emacs-directory))))
   (global-undo-tree-mode))
 
 
