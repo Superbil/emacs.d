@@ -3,7 +3,6 @@
 ;;; Code:
 
 (use-package org
-  :pin org
   :bind (;; ("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
          :map org-mode-map
@@ -414,7 +413,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
         org-mac-grab-Outlook-app-p nil
         org-mac-grab-devonthink-app-p nil))
 
-(use-package org-bullets)
+;; (use-package org-bullets)
 
 ;; (use-package org-fstree
 ;;   :after org)
